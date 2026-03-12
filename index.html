@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NickyDollars.ai — Digital Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@300;400&family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:       #080808;
+      --surface:  #0E0E0E;
+      --surface2: #141414;
+      --accent:   #C9A96E;
+      --white:    #F2F0ED;
+      --muted:    #5C5C5C;
+      --border:   rgba(255,255,255,0.07);
+      --font-cinzel:  'Cinzel', serif;
+      --font-display: 'Bebas Neue', sans-serif;
+      --font-sans:    'Barlow Condensed', sans-serif;
+      --font-mono:    'Space Mono', monospace;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: var(--font-sans);
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 500;
+      padding: 36px 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: padding 0.5s ease, background 0.5s ease, border-color 0.5s ease;
+      border-bottom: 1px solid transparent;
+    }
+    nav.scrolled {
+      padding: 22px 64px;
+      background: rgba(8,8,8,0.92);
+      backdrop-filter: blur(24px);
+      border-bottom-color: var(--border);
+    }
+    .nav-logo {
+      font-family: var(--font-cinzel);
+      font-size: 0.95rem;
+      font-weight: 300;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      color: var(--white);
+      text-decoration: none;
+    }
+    .nav-logo .ai {
+      font-family: var(--font-cinzel);
+      font-weight: 300;
+      font-style: italic;
+      text-transform: lowercase;
+      color: var(--accent);
+      letter-spacing: 0.06em;
+    }
+    .nav-links { display: flex; gap: 48px; list-style: none; }
+    .nav-links a {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover { color: var(--white); }
+
+    /* hamburger */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 24px; height: 1px;
+      background: var(--white);
+      transition: all 0.3s;
+    }
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(8,8,8,0.97);
+      z-index: 400;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 48px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .mobile-menu a:hover { color: var(--accent); }
+    .mobile-close {
+      position: absolute;
+      top: 32px; right: 32px;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--muted);
+      cursor: pointer;
+      letter-spacing: 0.15em;
+    }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: 1fr auto;
+      padding: 0 64px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-center {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 120px;
+    }
+    .hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 28px;
+      opacity: 0;
+      animation: fadeUp 1s 0.3s ease forwards;
+    }
+    .hero-headline {
+      font-family: var(--font-display);
+      font-size: clamp(6rem, 14vw, 14rem);
+      font-weight: 400;
+      line-height: 0.88;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      margin-bottom: 48px;
+      opacity: 0;
+      animation: fadeUp 1s 0.5s ease forwards;
+    }
+    .hero-headline .accent-word { color: var(--accent); }
+    .hero-sub {
+      font-family: var(--font-sans);
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: var(--muted);
+      max-width: 420px;
+      line-height: 1.7;
+      letter-spacing: 0.03em;
+      margin-bottom: 56px;
+      opacity: 0;
+      animation: fadeUp 1s 0.7s ease forwards;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      padding: 14px 36px;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      background: transparent;
+      cursor: pointer;
+      transition: background 0.35s, color 0.35s;
+      opacity: 0;
+      animation: fadeUp 1s 0.9s ease forwards;
+      width: fit-content;
+    }
+    .btn:hover { background: var(--accent); color: var(--bg); }
+    .btn-line { width: 24px; height: 1px; background: currentColor; transition: width 0.35s; flex-shrink: 0; }
+    .btn:hover .btn-line { width: 36px; }
+    .hero-bottom {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      border-top: 1px solid var(--border);
+      padding-top: 32px;
+      opacity: 0;
+      animation: fadeIn 1s 1.2s ease forwards;
+    }
+    .hero-stat { display: flex; flex-direction: column; gap: 6px; }
+    .hero-stat-num {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      color: var(--white);
+      line-height: 1;
+      letter-spacing: 0.02em;
+    }
+    .hero-stat-label {
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .hero-scroll-label {
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .hero-scroll-label::before { content: ''; width: 40px; height: 1px; background: var(--muted); }
+    .hero-rule-v {
+      position: absolute;
+      top: 0; bottom: 0; right: 220px;
+      width: 1px;
+      background: var(--border);
+    }
+
+    /* ── SHARED ── */
+    section { padding: 140px 64px; }
+    .section-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 80px;
+      gap: 40px;
+    }
+    .section-tag {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      padding-top: 16px;
+      white-space: nowrap;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(4rem, 7vw, 7.5rem);
+      font-weight: 400;
+      line-height: 0.92;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+    .section-title .accent-word { color: var(--accent); }
+
+    /* ── SERVICES ── */
+    #services {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .services-list { display: flex; flex-direction: column; }
+    .service-row {
+      display: grid;
+      grid-template-columns: 80px 1fr 1fr auto;
+      align-items: start;
+      gap: 48px;
+      padding: 52px 0;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+    .service-row:first-child { border-top: 1px solid var(--border); }
+    .service-row::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--surface2);
+      opacity: 0;
+      transition: opacity 0.4s;
+      pointer-events: none;
+    }
+    .service-row:hover::before { opacity: 1; }
+    .service-num { font-family: var(--font-mono); font-size: 0.65rem; color: var(--muted); padding-top: 8px; letter-spacing: 0.1em; position: relative; z-index: 1; }
+    .service-name { font-family: var(--font-display); font-size: clamp(2.8rem, 4vw, 4.5rem); line-height: 0.92; letter-spacing: 0.03em; text-transform: uppercase; position: relative; z-index: 1; }
+    .service-desc { font-family: var(--font-sans); font-size: 1rem; font-weight: 300; color: var(--muted); line-height: 1.7; max-width: 340px; letter-spacing: 0.02em; position: relative; z-index: 1; }
+    .service-items { list-style: none; display: flex; flex-direction: column; gap: 10px; padding-top: 6px; position: relative; z-index: 1; }
+    .service-items li { font-family: var(--font-mono); font-size: 0.65rem; color: var(--muted); letter-spacing: 0.08em; display: flex; align-items: center; gap: 12px; }
+    .service-items li::before { content: ''; width: 20px; height: 1px; background: var(--accent); flex-shrink: 0; }
+
+    /* ── WORK ── */
+    #work { background: var(--bg); }
+    .work-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+    }
+    .work-card {
+      background: var(--bg);
+      padding: 52px 48px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.4s;
+      min-height: 280px;
+      text-decoration: none;
+      color: inherit;
+    }
+    .work-card:hover { background: var(--surface); }
+    .work-card-accent {
+      position: absolute;
+      top: 0; left: 0;
+      width: 40px; height: 2px;
+      background: var(--accent);
+      transition: width 0.5s ease;
+    }
+    .work-card:hover .work-card-accent { width: 100%; }
+    .work-card-num { font-family: var(--font-mono); font-size: 0.62rem; color: var(--muted); letter-spacing: 0.1em; }
+    .work-card-title { font-family: var(--font-display); font-size: 2.8rem; line-height: 0.92; letter-spacing: 0.03em; text-transform: uppercase; margin-top: auto; }
+    .work-card-tag { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+    .work-card-desc {
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.65;
+      letter-spacing: 0.02em;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease, opacity 0.4s;
+      opacity: 0;
+    }
+    .work-card:hover .work-card-desc { max-height: 80px; opacity: 1; }
+    .work-card-arrow {
+      position: absolute;
+      bottom: 48px; right: 48px;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--muted);
+      opacity: 0;
+      transform: translateX(-8px);
+      transition: opacity 0.3s, transform 0.3s;
+    }
+    .work-card:hover .work-card-arrow { opacity: 1; transform: translateX(0); }
+
+    /* ── ABOUT ── */
+    #about {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 120px; align-items: start; }
+    .about-body { font-family: var(--font-sans); font-size: 1.05rem; font-weight: 300; color: var(--muted); line-height: 1.8; letter-spacing: 0.02em; margin-bottom: 56px; }
+    .about-body strong { color: var(--white); font-weight: 500; }
+    .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); }
+    .about-stat { background: var(--bg); padding: 36px 32px; }
+    .about-stat-num { font-family: var(--font-display); font-size: 4rem; color: var(--white); line-height: 1; margin-bottom: 6px; letter-spacing: 0.03em; }
+    .about-stat-label { font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+    .about-right { padding-top: 80px; }
+    .manifesto { padding: 56px; border: 1px solid var(--border); position: relative; overflow: hidden; }
+    .manifesto::before {
+      content: '//';
+      position: absolute;
+      top: 32px; left: 44px;
+      font-family: var(--font-mono);
+      font-size: 5rem;
+      line-height: 1;
+      color: var(--accent);
+      opacity: 0.08;
+    }
+    .manifesto-text { font-family: var(--font-display); font-size: 2.4rem; line-height: 1.05; letter-spacing: 0.03em; text-transform: uppercase; margin-bottom: 28px; }
+    .manifesto-text .accent-word { color: var(--accent); }
+    .manifesto-body { font-family: var(--font-sans); font-size: 1rem; font-weight: 300; color: var(--muted); line-height: 1.8; letter-spacing: 0.02em; }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--bg); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 120px; align-items: start; }
+    .contact-tagline { font-family: var(--font-sans); font-size: 1.2rem; font-weight: 300; color: var(--muted); line-height: 1.7; letter-spacing: 0.03em; margin-bottom: 56px; }
+    .contact-meta { display: flex; flex-direction: column; border-top: 1px solid var(--border); }
+    .contact-meta-item { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; border-bottom: 1px solid var(--border); }
+    .contact-meta-label { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); }
+    .contact-meta-val { font-family: var(--font-sans); font-size: 1rem; font-weight: 400; letter-spacing: 0.03em; color: var(--white); }
+    .contact-form { display: flex; flex-direction: column; border-top: 1px solid var(--border); }
+    .form-field { border-bottom: 1px solid var(--border); position: relative; }
+    .form-field label { display: block; font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); padding: 20px 0 0; }
+    .form-field input, .form-field select, .form-field textarea {
+      display: block; width: 100%; background: transparent; border: none; outline: none;
+      color: var(--white); font-family: var(--font-sans); font-size: 1rem; font-weight: 400; letter-spacing: 0.02em;
+      padding: 10px 0 20px; appearance: none; -webkit-appearance: none;
+    }
+    .form-field input::placeholder, .form-field textarea::placeholder { color: #3a3a3a; }
+    .form-field textarea { min-height: 100px; resize: none; }
+    .form-field select { cursor: pointer; color: #3a3a3a; }
+    .form-field select.filled { color: var(--white); }
+    .form-field select option { background: #141414; }
+    .form-underline { position: absolute; bottom: 0; left: 0; height: 1px; width: 0; background: var(--accent); transition: width 0.4s ease; }
+    .form-field:focus-within .form-underline { width: 100%; }
+    .form-row-2 { display: grid; grid-template-columns: 1fr 1fr; }
+    .form-row-2 .form-field:first-child { border-right: 1px solid var(--border); padding-right: 32px; }
+    .form-row-2 .form-field:last-child { padding-left: 32px; }
+    .form-submit { padding-top: 48px; }
+    .btn-submit {
+      display: inline-flex; align-items: center; justify-content: center; gap: 16px;
+      padding: 14px 40px; border: 1px solid var(--accent);
+      color: var(--accent); font-family: var(--font-mono); font-size: 0.65rem;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      background: transparent; cursor: pointer;
+      transition: background 0.35s, color 0.35s; width: 100%;
+    }
+    .btn-submit:hover { background: var(--accent); color: var(--bg); }
+    .btn-submit .btn-line { width: 24px; height: 1px; background: currentColor; transition: width 0.35s; flex-shrink: 0; }
+    .btn-submit:hover .btn-line { width: 36px; }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 36px 64px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer-logo { font-family: var(--font-cinzel); font-size: 0.75rem; font-weight: 300; letter-spacing: 0.38em; text-transform: uppercase; color: var(--muted); }
+    .footer-logo .ai { font-style: italic; color: var(--accent); letter-spacing: 0.06em; opacity: 0.7; }
+    .footer-copy { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.1em; color: var(--muted); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.45s; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 900px) {
+      nav, nav.scrolled { padding: 20px 24px; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      section { padding: 80px 24px; }
+      #hero { padding: 0 24px 60px; }
+      .hero-rule-v { display: none; }
+      .hero-headline { font-size: clamp(4.5rem, 18vw, 8rem); }
+      .hero-bottom { flex-wrap: wrap; gap: 24px; }
+      .hero-scroll-label { display: none; }
+      .section-header { flex-direction: column; gap: 12px; margin-bottom: 48px; }
+      .service-row { grid-template-columns: 1fr; gap: 16px; }
+      .service-num { display: none; }
+      .work-grid { grid-template-columns: 1fr; }
+      .work-card { min-height: 220px; padding: 36px 28px; }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 56px; }
+      .about-right { padding-top: 0; }
+      .form-row-2 { grid-template-columns: 1fr; }
+      .form-row-2 .form-field:first-child { border-right: none; padding-right: 0; }
+      .form-row-2 .form-field:last-child { padding-left: 0; }
+      footer { flex-direction: column; gap: 12px; text-align: center; padding: 28px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <span class="mobile-close" id="mobileClose">[ CLOSE ]</span>
+    <a href="#services" onclick="closeMobile()">Services</a>
+    <a href="#work" onclick="closeMobile()">Work</a>
+    <a href="#about" onclick="closeMobile()">Studio</a>
+    <a href="#contact" onclick="closeMobile()">Contact</a>
+  </div>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="#hero" class="nav-logo">NICKYDOLLARS<span class="ai">.ai</span></a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#about">Studio</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-rule-v"></div>
+    <div class="hero-center">
+      <p class="hero-eyebrow">Digital Studio — Atlanta, GA</p>
+      <h1 class="hero-headline">
+        Websites.<br>
+        Automations.<br>
+        <span class="accent-word">Results.</span>
+      </h1>
+      <p class="hero-sub">We build the digital infrastructure that moves your business forward — precisely engineered, beautifully executed.</p>
+      <a href="#contact" class="btn"><span class="btn-line"></span>Start a Project</a>
+    </div>
+    <div class="hero-bottom">
+      <div class="hero-stat"><div class="hero-stat-num">6+</div><div class="hero-stat-label">Sites Launched</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">3</div><div class="hero-stat-label">Industries Served</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">100%</div><div class="hero-stat-label">Custom Builds</div></div>
+      <div class="hero-scroll-label">Scroll to explore</div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="section-header reveal">
+      <span class="section-tag">What We Build</span>
+      <h2 class="section-title">Our <span class="accent-word">Services</span></h2>
+    </div>
+    <div class="services-list">
+      <div class="service-row reveal">
+        <div class="service-num">01</div>
+        <div class="service-name">Web Design</div>
+        <p class="service-desc">High-conversion websites engineered for precision. Not templates — purpose-built digital experiences that represent your brand at the highest level.</p>
+        <ul class="service-items">
+          <li>Custom design & development</li>
+          <li>Mobile-first, performance-optimized</li>
+          <li>Landing pages & full sites</li>
+          <li>Maintenance retainers</li>
+        </ul>
+      </div>
+      <div class="service-row reveal reveal-delay-1">
+        <div class="service-num">02</div>
+        <div class="service-name">Automations</div>
+        <p class="service-desc">Smart systems that work while you sleep. We connect your tools so leads, follow-ups, and workflows run without lifting a finger.</p>
+        <ul class="service-items">
+          <li>CRM & pipeline integration</li>
+          <li>Email & SMS sequences</li>
+          <li>AI-powered workflows</li>
+          <li>Form-to-action automation</li>
+        </ul>
+      </div>
+      <div class="service-row reveal reveal-delay-2">
+        <div class="service-num">03</div>
+        <div class="service-name">Sales Funnels</div>
+        <p class="service-desc">End-to-end pipelines built to convert. From first click to closed deal — we map the journey, build the touchpoints, and track what works.</p>
+        <ul class="service-items">
+          <li>Funnel strategy & architecture</li>
+          <li>Lead capture & nurture</li>
+          <li>Analytics & conversion tracking</li>
+          <li>Full-stack funnel builds</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section id="work">
+    <div class="section-header reveal">
+      <span class="section-tag">Portfolio</span>
+      <h2 class="section-title">Selected <span class="accent-word">Work</span></h2>
+    </div>
+    <div class="work-grid">
+
+      <!-- 1. W.I.N. -->
+      <a class="work-card reveal" href="https://wanted-international-network.netlify.app/site/" target="_blank" rel="noopener">
+        <div class="work-card-accent"></div>
+        <div class="work-card-num">01</div>
+        <div class="work-card-title">W.I.N.</div>
+        <div class="work-card-tag">Creative Production</div>
+        <p class="work-card-desc">Wanted International Network — cinematic studio site with director roster, brief submission system, and Simian video integration.</p>
+        <div class="work-card-arrow">View Project →</div>
+      </a>
+
+      <!-- 2. Family Voices Media -->
+      <a class="work-card reveal reveal-delay-1" href="https://family-voices-media.netlify.app/sales-funnel-offer-architecture.html" target="_blank" rel="noopener">
+        <div class="work-card-accent"></div>
+        <div class="work-card-num">02</div>
+        <div class="work-card-title">Family Voices Media</div>
+        <div class="work-card-tag">Documentary / Sales Funnel</div>
+        <p class="work-card-desc">Full funnel build for a family history documentary studio — landing page, lead magnet, and tiered offer architecture.</p>
+        <div class="work-card-arrow">View Project →</div>
+      </a>
+
+      <!-- 3. Spanish Academy App -->
+      <a class="work-card reveal" href="https://tsa-progress-report.web.app/login" target="_blank" rel="noopener">
+        <div class="work-card-accent"></div>
+        <div class="work-card-num">03</div>
+        <div class="work-card-title">Spanish Academy</div>
+        <div class="work-card-tag">EdTech / AI Automation</div>
+        <p class="work-card-desc">AI-powered bilingual progress report system for PreK educators — English/Spanish toggle with automated comment generation.</p>
+        <div class="work-card-arrow">View Project →</div>
+      </a>
+
+      <!-- 4. Brian Daggett -->
+      <a class="work-card reveal reveal-delay-1" href="https://brian-daggett.netlify.app/" target="_blank" rel="noopener">
+        <div class="work-card-accent"></div>
+        <div class="work-card-num">04</div>
+        <div class="work-card-title">Brian Daggett</div>
+        <div class="work-card-tag">Music / Artist</div>
+        <p class="work-card-desc">Professional drummer site with media gallery, lightbox photo studio, social integration, and press kit.</p>
+        <div class="work-card-arrow">View Project →</div>
+      </a>
+
+      <!-- 5. Atlanta 1st AC -->
+      <a class="work-card reveal reveal-delay-2" href="https://atlanta1stac.com" target="_blank" rel="noopener">
+        <div class="work-card-accent"></div>
+        <div class="work-card-num">05</div>
+        <div class="work-card-title">Atlanta 1st AC</div>
+        <div class="work-card-tag">Film / Personal Brand</div>
+        <p class="work-card-desc">Portfolio site for a veteran cinematography professional — credits showcase, video reels, and industry contact system.</p>
+        <div class="work-card-arrow">View Project →</div>
+      </a>
+
+      <!-- 6. NickyDollars.ai (this site) -->
+      <a class="work-card reveal reveal-delay-3" href="#hero" rel="noopener">
+        <div class="work-card-accent"></div>
+        <div class="work-card-num">06</div>
+        <div class="work-card-title">NickyDollars.ai</div>
+        <div class="work-card-tag">Brand / Web / Identity</div>
+        <p class="work-card-desc">Full brand identity and site build for this studio — logo system, color palette, typographic direction, and deployment.</p>
+        <div class="work-card-arrow">You're Here →</div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-grid">
+      <div class="about-left">
+        <div class="section-header reveal" style="margin-bottom:48px;">
+          <span class="section-tag">The Studio</span>
+        </div>
+        <h2 class="section-title reveal" style="margin-bottom:48px;">Precision<br><span class="accent-word">By Design</span></h2>
+        <p class="about-body reveal reveal-delay-1">
+          <strong>NickyDollars.ai is a boutique digital studio</strong> built for clients who refuse to settle for average. We combine high-end design with intelligent systems — websites that look the part and pipelines that do the work.<br><br>
+          Every build is custom. Every system is intentional. We work with <strong>creative professionals, entrepreneurs, and growth-minded businesses</strong> who need a digital presence that reflects where they're going — not where they've been.
+        </p>
+        <div class="about-stats reveal reveal-delay-2">
+          <div class="about-stat"><div class="about-stat-num">6+</div><div class="about-stat-label">Launches</div></div>
+          <div class="about-stat"><div class="about-stat-num">3</div><div class="about-stat-label">Industries</div></div>
+          <div class="about-stat"><div class="about-stat-num">100%</div><div class="about-stat-label">Custom</div></div>
+          <div class="about-stat"><div class="about-stat-num">AI</div><div class="about-stat-label">Capable</div></div>
+        </div>
+      </div>
+      <div class="about-right reveal reveal-delay-2">
+        <div class="manifesto">
+          <p class="manifesto-text">Most websites are digital brochures.<br><span class="accent-word">Ours are built to close.</span></p>
+          <p class="manifesto-body">We don't build websites that look good and do nothing. Every project starts with a business goal and ends with a system designed to achieve it — thoughtful strategy, obsessive craft, and smart automation working together.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-grid">
+      <div class="contact-left">
+        <div class="section-header reveal" style="margin-bottom:40px;">
+          <span class="section-tag">Get In Touch</span>
+        </div>
+        <h2 class="section-title reveal" style="margin-bottom:40px;">Start a<br><span class="accent-word">Project</span></h2>
+        <p class="contact-tagline reveal reveal-delay-1">Tell us what you're building.<br>We'll tell you how to make it work.</p>
+        <div class="contact-meta reveal reveal-delay-2">
+          <div class="contact-meta-item">
+            <span class="contact-meta-label">Email</span>
+            <span class="contact-meta-val">hello@nickydollars.ai</span>
+          </div>
+          <div class="contact-meta-item">
+            <span class="contact-meta-label">Location</span>
+            <span class="contact-meta-val">Atlanta, GA</span>
+          </div>
+          <div class="contact-meta-item">
+            <span class="contact-meta-label">Remote</span>
+            <span class="contact-meta-val">Available Worldwide</span>
+          </div>
+        </div>
+      </div>
+      <div class="contact-right reveal reveal-delay-1">
+        <form class="contact-form" onsubmit="return false;">
+          <div class="form-row-2">
+            <div class="form-field">
+              <label>Name</label>
+              <input type="text" placeholder="Your name" />
+              <div class="form-underline"></div>
+            </div>
+            <div class="form-field">
+              <label>Email</label>
+              <input type="email" placeholder="your@email.com" />
+              <div class="form-underline"></div>
+            </div>
+          </div>
+          <div class="form-field">
+            <label>Project Type</label>
+            <select onchange="this.classList.add('filled')">
+              <option value="" disabled selected>Select a service</option>
+              <option>Web Design</option>
+              <option>Automation Setup</option>
+              <option>Sales Funnel Build</option>
+              <option>Full Package</option>
+              <option>Not Sure Yet</option>
+            </select>
+            <div class="form-underline"></div>
+          </div>
+          <div class="form-field">
+            <label>Tell Us About Your Project</label>
+            <textarea placeholder="What are you building? What's the goal?"></textarea>
+            <div class="form-underline"></div>
+          </div>
+          <div class="form-submit">
+            <button type="submit" class="btn-submit">
+              <span class="btn-line"></span>
+              Send Message
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">NICKYDOLLARS<span class="ai">.ai</span></div>
+    <div class="footer-copy">© 2026 NickyDollars.ai — All Rights Reserved</div>
+  </footer>
+
+  <script>
+    // Nav scroll
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // Scroll reveal
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(r => observer.observe(r));
+
+    // Mobile menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileClose = document.getElementById('mobileClose');
+    hamburger.addEventListener('click', () => mobileMenu.classList.add('open'));
+    mobileClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
+    function closeMobile() { mobileMenu.classList.remove('open'); }
+  </script>
+</body>
+</html>
