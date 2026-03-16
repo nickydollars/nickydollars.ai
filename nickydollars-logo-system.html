@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NickyDollars.ai — Logo System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;1,300&family=Josefin+Sans:wght@100;200;300&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:       #080808;
+      --surface:  #0E0E0E;
+      --surface2: #141414;
+      --gold:     #C9A96E;
+      --gold-dim: #8B6D3F;
+      --white:    #F2F0ED;
+      --muted:    #3C3C3C;
+      --border:   rgba(255,255,255,0.07);
+    }
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: 'Josefin Sans', sans-serif;
+      font-weight: 200;
+      padding: 80px 72px;
+    }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 80px;
+    }
+    .page-title {
+      font-size: 0.6rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .page-date {
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      color: var(--muted);
+    }
+
+    /* ── SECTION LABELS ── */
+    .section-label {
+      font-size: 0.58rem;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 40px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ── LOGO CORE ── */
+    /* Primary wordmark */
+    .logo {
+      font-family: 'Cinzel', serif;
+      font-weight: 300;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      line-height: 1;
+    }
+    .logo .ai {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-style: italic;
+      text-transform: lowercase;
+      color: var(--gold);
+      letter-spacing: 0.06em;
+    }
+
+    /* Size variants */
+    .logo-xl  { font-size: 3.2rem; }
+    .logo-xl .ai { font-size: 2.9rem; }
+
+    .logo-lg  { font-size: 2rem; }
+    .logo-lg .ai { font-size: 1.8rem; }
+
+    .logo-md  { font-size: 1.35rem; }
+    .logo-md .ai { font-size: 1.2rem; }
+
+    .logo-sm  { font-size: 0.95rem; }
+    .logo-sm .ai { font-size: 0.85rem; }
+
+    .logo-xs  { font-size: 0.65rem; }
+    .logo-xs .ai { font-size: 0.6rem; }
+
+    /* On light bg */
+    .logo-on-light { color: #0a0a0a; }
+    .logo-on-light .ai { color: var(--gold-dim); }
+
+    /* Gold version */
+    .logo-gold { color: var(--gold); }
+    .logo-gold .ai { color: var(--white); font-style: italic; }
+
+    /* White version */
+    .logo-white { color: var(--white); }
+
+    /* ── CELLS & STAGES ── */
+    .stage {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      background: var(--border);
+      margin-bottom: 16px;
+    }
+    .cell {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 72px 80px;
+    }
+    .cell-left { justify-content: flex-start; padding-left: 72px; }
+    .cell-dark  { background: #080808; }
+    .cell-mid   { background: #141414; }
+    .cell-light { background: #F2F0ED; }
+    .cell-gold-bg { background: var(--gold); }
+
+    /* ── LOCKUP WITH TAGLINE ── */
+    .lockup {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+    .lockup-left { align-items: flex-start; }
+    .lockup-rule {
+      width: 100%;
+      height: 1px;
+      background: rgba(201,169,110,0.3);
+    }
+    .lockup-tagline {
+      font-family: 'Josefin Sans', sans-serif;
+      font-weight: 100;
+      font-size: 0.48rem;
+      letter-spacing: 0.55em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .lockup-tagline-gold { color: rgba(201,169,110,0.5); }
+    .lockup-tagline-dim  { color: rgba(10,10,10,0.35); }
+
+    /* ── SIZE SCALE ── */
+    .size-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      background: var(--border);
+    }
+    .size-cell {
+      background: var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 28px 48px;
+      border-bottom: 1px solid var(--border);
+      gap: 40px;
+    }
+    .size-cell:last-child { border-bottom: none; }
+    .size-meta {
+      font-family: 'Josefin Sans', sans-serif;
+      font-weight: 100;
+      font-size: 0.55rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--muted);
+      white-space: nowrap;
+      min-width: 160px;
+    }
+    .size-use {
+      font-family: 'Josefin Sans', sans-serif;
+      font-weight: 100;
+      font-size: 0.55rem;
+      letter-spacing: 0.15em;
+      color: var(--muted);
+      text-align: right;
+      min-width: 200px;
+    }
+
+    /* ── COLOR PALETTE ── */
+    .palette {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1px;
+      background: var(--border);
+      margin-bottom: 16px;
+    }
+    .swatch {
+      display: flex;
+      flex-direction: column;
+    }
+    .swatch-color {
+      height: 100px;
+    }
+    .swatch-info {
+      padding: 20px;
+      background: var(--surface);
+    }
+    .swatch-name {
+      font-size: 0.58rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+    .swatch-hex {
+      font-size: 0.58rem;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+    }
+
+    /* ── CLEAR SPACE ── */
+    .clearspace-demo {
+      background: var(--surface);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px;
+      position: relative;
+      margin-bottom: 16px;
+    }
+    .clearspace-box {
+      position: relative;
+      padding: 32px;
+    }
+    .clearspace-box::before,
+    .clearspace-box::after {
+      content: '';
+      position: absolute;
+      border: 1px dashed rgba(201,169,110,0.2);
+    }
+    .clearspace-box::before { inset: 0; }
+    /* Corner marks */
+    .cs-corner {
+      position: absolute;
+      width: 10px; height: 10px;
+      border-color: rgba(201,169,110,0.4);
+      border-style: solid;
+    }
+    .cs-tl { top: 0; left: 0; border-width: 1px 0 0 1px; }
+    .cs-tr { top: 0; right: 0; border-width: 1px 1px 0 0; }
+    .cs-bl { bottom: 0; left: 0; border-width: 0 0 1px 1px; }
+    .cs-br { bottom: 0; right: 0; border-width: 0 1px 1px 0; }
+    .clearspace-note {
+      position: absolute;
+      bottom: 20px; right: 24px;
+      font-size: 0.55rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ── NAV PREVIEW ── */
+    .nav-preview {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 24px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+    .nav-links-preview {
+      display: flex;
+      gap: 40px;
+      list-style: none;
+    }
+    .nav-links-preview li {
+      font-family: 'Josefin Sans', sans-serif;
+      font-weight: 200;
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ── FAVICON PREVIEW ── */
+    .favicon-row {
+      display: flex;
+      gap: 32px;
+      align-items: flex-end;
+      flex-wrap: wrap;
+    }
+    .favicon-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+    .favicon-box {
+      background: var(--surface2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 2px;
+    }
+    .favicon-label {
+      font-size: 0.52rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .favicon-text {
+      font-family: 'Cinzel', serif;
+      font-weight: 400;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    /* ── SPACING ── */
+    .mb-80 { margin-bottom: 80px; }
+    .mb-120 { margin-bottom: 120px; }
+
+    /* ── DO / DON'T ── */
+    .rules-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+    }
+    .rule-cell {
+      background: var(--bg);
+      padding: 48px 56px;
+      position: relative;
+    }
+    .rule-cell-bad { background: #0c0808; }
+    .rule-marker {
+      font-family: 'Josefin Sans', sans-serif;
+      font-weight: 200;
+      font-size: 0.58rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      margin-bottom: 32px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .rule-marker-good { color: #5a8a5a; }
+    .rule-marker-bad  { color: #8a4a4a; }
+    .rule-marker-dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+    }
+    .dot-good { background: #5a8a5a; }
+    .dot-bad  { background: #8a4a4a; }
+    .rule-note {
+      margin-top: 20px;
+      font-size: 0.65rem;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* bad examples */
+    .logo-bad-color { font-family: 'Cinzel', serif; font-weight: 300; font-size: 1.6rem; letter-spacing: 0.38em; color: #6C63FF; }
+    .logo-bad-weight { font-family: 'Cinzel', serif; font-weight: 500; font-size: 1.6rem; letter-spacing: 0.1em; color: var(--white); }
+    .logo-bad-weight .ai { font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--gold); font-size: 1.4rem; letter-spacing: 0.06em; }
+    .logo-bad-lower { font-family: 'Cinzel', serif; font-weight: 300; font-size: 1.6rem; letter-spacing: 0.38em; color: var(--white); text-transform: none; }
+    .logo-bad-lower .ai { font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--gold); font-size: 1.4rem; }
+    .logo-bad-stretch { font-family: 'Cinzel', serif; font-weight: 300; font-size: 1.6rem; letter-spacing: 0.38em; color: var(--white); transform: scaleX(1.25); display: inline-block; }
+    .logo-bad-stretch .ai { font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--gold); font-size: 1.4rem; }
+  </style>
+</head>
+<body>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="page-title">NickyDollars.ai — Logo Identity System</div>
+    <div class="page-date">March 2026 — Confidential</div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- 1. PRIMARY WORDMARK -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="section-label">01 — Primary Wordmark</div>
+  <div class="stage mb-80">
+    <div class="cell cell-dark">
+      <div class="logo logo-xl">NICKYDOLLARS<span class="ai">.ai</span></div>
+    </div>
+    <div class="cell cell-mid">
+      <div class="logo logo-xl">NICKYDOLLARS<span class="ai">.ai</span></div>
+    </div>
+    <div class="cell cell-light">
+      <div class="logo logo-xl logo-on-light">NICKYDOLLARS<span class="ai">.ai</span></div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- 2. LOCKUP WITH TAGLINE -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="section-label">02 — Full Lockup with Tagline</div>
+  <div class="stage mb-80">
+    <div class="cell cell-dark">
+      <div class="lockup">
+        <div class="logo logo-lg">NICKYDOLLARS<span class="ai">.ai</span></div>
+        <div class="lockup-rule"></div>
+        <div class="lockup-tagline">Digital Studio — Atlanta</div>
+      </div>
+    </div>
+    <div class="cell cell-light">
+      <div class="lockup">
+        <div class="logo logo-lg logo-on-light">NICKYDOLLARS<span class="ai">.ai</span></div>
+        <div class="lockup-rule" style="background:rgba(139,109,63,0.3);"></div>
+        <div class="lockup-tagline lockup-tagline-dim">Digital Studio — Atlanta</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- 3. ALTERNATE COLORWAYS -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="section-label">03 — Alternate Colorways</div>
+  <div class="stage mb-80">
+    <!-- All white -->
+    <div class="cell cell-dark" style="padding:56px 80px;">
+      <div style="display:flex;flex-direction:column;gap:6px;align-items:center;">
+        <div class="logo logo-md logo-white">NICKYDOLLARS<span class="ai" style="color:var(--white);">.ai</span></div>
+        <div style="font-size:0.52rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--muted);">All White — reversed on dark</div>
+      </div>
+    </div>
+    <!-- Gold primary -->
+    <div class="cell cell-dark" style="padding:56px 80px;">
+      <div style="display:flex;flex-direction:column;gap:6px;align-items:center;">
+        <div class="logo logo-md logo-gold">NICKYDOLLARS<span class="ai">.ai</span></div>
+        <div style="font-size:0.52rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--muted);">Gold Primary — special use</div>
+      </div>
+    </div>
+    <!-- On gold background -->
+    <div class="cell cell-gold-bg" style="padding:56px 80px;">
+      <div style="display:flex;flex-direction:column;gap:6px;align-items:center;">
+        <div class="logo logo-md" style="color:#080808;">NICKYDOLLARS<span class="ai" style="color:#080808;font-style:italic;">.ai</span></div>
+        <div style="font-size:0.52rem;letter-spacing:0.3em;text-transform:uppercase;color:rgba(0,0,0,0.35);">On gold — special / print use</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- 4. SIZE SCALE -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="section-label">04 — Size Scale</div>
+  <div class="size-row mb-80">
+    <div class="size-cell">
+      <div class="size-meta">XL — Hero / Splash</div>
+      <div class="logo logo-xl">NICKYDOLLARS<span class="ai">.ai</span></div>
+      <div class="size-use">Homepage hero, printed materials</div>
+    </div>
+    <div class="size-cell">
+      <div class="size-meta">LG — Section Header</div>
+      <div class="logo logo-lg">NICKYDOLLARS<span class="ai">.ai</span></div>
+      <div class="size-use">Proposals, presentations, footers</div>
+    </div>
+    <div class="size-cell">
+      <div class="size-meta">MD — Navigation</div>
+      <div class="logo logo-md">NICKYDOLLARS<span class="ai">.ai</span></div>
+      <div class="size-use">Site nav, email header, letterhead</div>
+    </div>
+    <div class="size-cell">
+      <div class="size-meta">SM — Compact</div>
+      <div class="logo logo-sm">NICKYDOLLARS<span class="ai">.ai</span></div>
+      <div class="size-use">Watermarks, footers, invoices</div>
+    </div>
+    <div class="size-cell">
+      <div class="size-meta">XS — Minimum</div>
+      <div class="logo logo-xs">NICKYDOLLARS<span class="ai">.ai</span></div>
+      <div class="size-use">Do not use below this size</div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- 5. FAVICON / ICON MARK -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="section-label">05 — Favicon / Icon Mark</div>
+  <div class="cell cell-mid mb-80" style="justify-content:flex-start;gap:40px;flex-wrap:wrap;padding:56px 72px;">
+    <div class="favicon-item">
+      <div class="favicon-box" style="width:64px;height:64px;">
+        <span class="favicon-text" style="font-size:1.4rem;">N</span>
+      </div>
+      <div class="favicon-label">64px</div>
+    </div>
+    <div class="favicon-item">
+      <div class="favicon-box" style="width:48px;height:48px;">
+        <span class="favicon-text" style="font-size:1.1rem;">N</span>
+      </div>
+      <div class="favicon-label">48px</div>
+    </div>
+    <div class="favicon-item">
+      <div class="favicon-box" style="width:32px;height:32px;">
+        <span class="favicon-text" style="font-size:0.75rem;">N</span>
+      </div>
+      <div class="favicon-label">32px</div>
+    </div>
+    <div class="favicon-item">
+      <div class="favicon-box" style="width:16px;height:16px;">
+        <span class="favicon-text" style="font-size:0.45rem;">N</span>
+      </div>
+      <div class="favicon-label">16px</div>
+    </div>
+    <div style="width:1px;height:64px;background:var(--border);"></div>
+    <div class="favicon-item">
+      <div class="favicon-box" style="width:64px;height:64px;background:#F2F0ED;">
+        <span class="favicon-text" style="font-size:1.4rem;color:var(--gold-dim);">N</span>
+      </div>
+      <div class="favicon-label">Light bg</div>
+    </div>
+    <div style="margin-left:12px;max-width:280px;">
+      <div style="font-size:0.6rem;letter-spacing:0.15em;color:var(--muted);line-height:1.8;">
+        The "N" from Cinzel serves as the standalone icon mark — used for browser favicons, social profile avatars, and app icons. The Cinzel "N" has distinctive serifs that read clearly at small sizes.
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- 6. NAV PREVIEW -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="section-label">06 — Site Navigation Preview</div>
+  <div class="mb-80">
+    <div class="nav-preview">
+      <div class="logo logo-sm">NICKYDOLLARS<span class="ai">.ai</span></div>
+      <ul class="nav-links-preview">
+        <li>Services</li>
+        <li>Work</li>
+        <li>Studio</li>
+        <li>Contact</li>
+      </ul>
+    </div>
+    <div style="font-size:0.58rem;letter-spacing:0.15em;color:var(--muted);padding:14px 0;">
+      Nav uses MD size — Cinzel Light at 0.95rem with 0.38em letter-spacing
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- 7. COLOR SYSTEM -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="section-label">07 — Brand Color System</div>
+  <div class="palette mb-80">
+    <div class="swatch">
+      <div class="swatch-color" style="background:#080808;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Void</div>
+        <div class="swatch-hex">#080808</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#0E0E0E;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Surface</div>
+        <div class="swatch-hex">#0E0E0E</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#C9A96E;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Gold</div>
+        <div class="swatch-hex">#C9A96E</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#F2F0ED;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Ivory</div>
+        <div class="swatch-hex">#F2F0ED</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#5C5C5C;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Smoke</div>
+        <div class="swatch-hex">#5C5C5C</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- 8. DO / DON'T -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="section-label">08 — Usage Rules</div>
+  <div class="rules-grid mb-80">
+    <div class="rule-cell">
+      <div class="rule-marker rule-marker-good"><span class="rule-marker-dot dot-good"></span>Do</div>
+      <div class="logo logo-md">NICKYDOLLARS<span class="ai">.ai</span></div>
+      <div class="rule-note">Always use Cinzel Light (300) for NICKYDOLLARS and Cormorant Garamond italic for .ai</div>
+    </div>
+    <div class="rule-cell rule-cell-bad">
+      <div class="rule-marker rule-marker-bad"><span class="rule-marker-dot dot-bad"></span>Don't — wrong color</div>
+      <div class="logo-bad-color">NICKYDOLLARS.ai</div>
+      <div class="rule-note">Never use off-brand colors. The wordmark uses Ivory or Gold only — never blue, purple, or other accent colors.</div>
+    </div>
+    <div class="rule-cell">
+      <div class="rule-marker rule-marker-good"><span class="rule-marker-dot dot-good"></span>Do</div>
+      <div class="logo logo-md logo-on-light">NICKYDOLLARS<span class="ai">.ai</span></div>
+      <div class="rule-note">On light backgrounds, use dark version. Gold .ai shifts to #8B6D3F for legibility.</div>
+    </div>
+    <div class="rule-cell rule-cell-bad">
+      <div class="rule-marker rule-marker-bad"><span class="rule-marker-dot dot-bad"></span>Don't — too heavy / tight</div>
+      <div class="logo-bad-weight">NICKYDOLLARS<span class="ai">.ai</span></div>
+      <div class="rule-note">Never increase font weight or reduce letter-spacing. The delicacy of Cinzel Light is the brand.</div>
+    </div>
+    <div class="rule-cell">
+      <div class="rule-marker rule-marker-good"><span class="rule-marker-dot dot-good"></span>Do</div>
+      <div class="logo logo-md">NICKYDOLLARS<span class="ai">.ai</span></div>
+      <div class="rule-note">NICKYDOLLARS always in caps. .ai always lowercase italic in gold.</div>
+    </div>
+    <div class="rule-cell rule-cell-bad">
+      <div class="rule-marker rule-marker-bad"><span class="rule-marker-dot dot-bad"></span>Don't — stretch or distort</div>
+      <div class="logo-bad-stretch">NICKYDOLLARS<span class="ai">.ai</span></div>
+      <div class="rule-note">Never stretch, compress, skew, or add effects like drop shadows or outlines to the wordmark.</div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- 9. SPEC SHEET -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="section-label">09 — Type Specifications</div>
+  <div style="background:var(--surface);border:1px solid var(--border);padding:56px;display:grid;grid-template-columns:1fr 1fr;gap:48px;">
+    <div>
+      <div style="font-size:0.58rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;">NICKYDOLLARS</div>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div style="display:flex;justify-content:space-between;border-bottom:1px solid var(--border);padding-bottom:12px;">
+          <span style="font-size:0.65rem;letter-spacing:0.1em;color:var(--muted);">Typeface</span>
+          <span style="font-size:0.65rem;color:var(--white);">Cinzel</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;border-bottom:1px solid var(--border);padding-bottom:12px;">
+          <span style="font-size:0.65rem;letter-spacing:0.1em;color:var(--muted);">Weight</span>
+          <span style="font-size:0.65rem;color:var(--white);">300 — Light</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;border-bottom:1px solid var(--border);padding-bottom:12px;">
+          <span style="font-size:0.65rem;letter-spacing:0.1em;color:var(--muted);">Case</span>
+          <span style="font-size:0.65rem;color:var(--white);">All Caps</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;border-bottom:1px solid var(--border);padding-bottom:12px;">
+          <span style="font-size:0.65rem;letter-spacing:0.1em;color:var(--muted);">Letter-spacing</span>
+          <span style="font-size:0.65rem;color:var(--white);">0.38em</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;">
+          <span style="font-size:0.65rem;letter-spacing:0.1em;color:var(--muted);">Color</span>
+          <span style="font-size:0.65rem;color:var(--white);">#F2F0ED / #0A0A0A</span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:0.58rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;">.ai</div>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div style="display:flex;justify-content:space-between;border-bottom:1px solid var(--border);padding-bottom:12px;">
+          <span style="font-size:0.65rem;letter-spacing:0.1em;color:var(--muted);">Typeface</span>
+          <span style="font-size:0.65rem;color:var(--white);">Cormorant Garamond</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;border-bottom:1px solid var(--border);padding-bottom:12px;">
+          <span style="font-size:0.65rem;letter-spacing:0.1em;color:var(--muted);">Weight</span>
+          <span style="font-size:0.65rem;color:var(--white);">300 — Light Italic</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;border-bottom:1px solid var(--border);padding-bottom:12px;">
+          <span style="font-size:0.65rem;letter-spacing:0.1em;color:var(--muted);">Case</span>
+          <span style="font-size:0.65rem;color:var(--white);">Lowercase</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;border-bottom:1px solid var(--border);padding-bottom:12px;">
+          <span style="font-size:0.65rem;letter-spacing:0.1em;color:var(--muted);">Letter-spacing</span>
+          <span style="font-size:0.65rem;color:var(--white);">0.06em</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;">
+          <span style="font-size:0.65rem;letter-spacing:0.1em;color:var(--muted);">Color</span>
+          <span style="font-size:0.65rem;color:var(--white);">#C9A96E / #8B6D3F</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
