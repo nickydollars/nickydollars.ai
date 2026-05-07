@@ -41,8 +41,7 @@
       border-bottom: 0.5px solid var(--border);
     }
     .nav-brand { text-decoration: none; display: flex; flex-direction: column; gap: 2px; }
-    .nav-logo { font-family: var(--font-display); font-size: 18px; color: var(--white); letter-spacing: 0.06em; line-height: 1; }
-    .nav-slogan { font-family: var(--font-mono); font-size: 7.5px; color: var(--green); letter-spacing: 0.18em; line-height: 1; }
+    .nav-logo { font-family: var(--font-display); font-size: 26px; color: var(--white); letter-spacing: 0.06em; line-height: 1; }
     .nav-links { display: flex; gap: 36px; list-style: none; }
     .nav-links a { font-family: var(--font-mono); font-size: 10px; color: var(--muted); text-decoration: none; letter-spacing: 0.12em; text-transform: uppercase; transition: color 0.2s; }
     .nav-links a:hover { color: var(--white); }
@@ -60,7 +59,7 @@
     /* HERO */
     #hero {
       min-height: 100vh; display: flex; flex-direction: column;
-      align-items: flex-start; justify-content: center;
+      align-items: flex-end; justify-content: center;
       padding: 100px 48px 80px; position: relative; overflow: hidden;
     }
     .hero-image-wrap {
@@ -79,10 +78,10 @@
       position: absolute; inset: 0;
       background: linear-gradient(
         to right,
-        rgba(8,8,8,0.88) 0%,
-        rgba(8,8,8,0.65) 40%,
-        rgba(8,8,8,0.30) 70%,
-        rgba(8,8,8,0.55) 100%
+        rgba(8,8,8,0.60) 0%,
+        rgba(8,8,8,0.25) 40%,
+        rgba(8,8,8,0.05) 70%,
+        rgba(8,8,8,0.20) 100%
       );
     }
     .hero-image-bottom {
@@ -277,7 +276,6 @@
   <nav>
     <a href="#hero" class="nav-brand">
       <span class="nav-logo">NICKYDOLLARS.ai</span>
-      <span class="nav-slogan">COMPUTERS CAN DO ANYTHING</span>
     </a>
     <ul class="nav-links">
       <li><a href="#work">Work</a></li>
