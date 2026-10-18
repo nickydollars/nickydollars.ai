@@ -3,11 +3,65 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NickyDollars.ai — Digital Studio</title>
-  <meta name="description" content="NickyDollars.ai — Websites, automations, and AI-powered systems. Atlanta, GA. Computers can do anything." />
-  <meta property="og:title" content="NickyDollars.ai" />
-  <meta property="og:description" content="Computers can do anything." />
-  <meta property="og:url" content="https://nickydollars.ai" />
+  <title>NickyDollars.ai — Websites &amp; AI Systems for Film, Entertainment &amp; Advertising</title>
+  <meta name="description" content="Websites and AI systems for production companies, rental houses, agencies, crew and talent. Built in Atlanta by a 20-year camera department veteran who knows the industry from the inside." />
+  <link rel="canonical" href="https://nickydollars.ai/" />
+  <meta name="theme-color" content="#080808" />
+
+  <!-- Favicons -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="NickyDollars.ai" />
+  <meta property="og:title" content="Built on set. Built for your business." />
+  <meta property="og:description" content="Websites and AI systems for film, entertainment &amp; advertising — built by someone with 20 years on set." />
+  <meta property="og:url" content="https://nickydollars.ai/" />
+  <meta property="og:image" content="https://nickydollars.ai/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="NickyDollars.ai — Built on set. Built for your business." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Built on set. Built for your business." />
+  <meta name="twitter:description" content="Websites and AI systems for film, entertainment &amp; advertising — built by someone with 20 years on set." />
+  <meta name="twitter:image" content="https://nickydollars.ai/og-image.jpg" />
+
+  <!-- Structured data. Update Person "name" with your full name and add profile links to "sameAs". -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://nickydollars.ai/#studio",
+        "name": "NickyDollars.ai",
+        "url": "https://nickydollars.ai/",
+        "image": "https://nickydollars.ai/og-image.jpg",
+        "logo": "https://nickydollars.ai/apple-touch-icon.png",
+        "email": "hello@nickydollars.ai",
+        "slogan": "Computers can do anything.",
+        "description": "Websites, automations and AI systems for film, entertainment and advertising businesses.",
+        "address": { "@type": "PostalAddress", "addressLocality": "Atlanta", "addressRegion": "GA", "addressCountry": "US" },
+        "areaServed": "Worldwide",
+        "knowsAbout": ["Web design", "Web development", "Workflow automation", "AI systems", "Film production", "Cinema camera rental"],
+        "founder": { "@id": "https://nickydollars.ai/#nick" }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://nickydollars.ai/#nick",
+        "name": "Nick",
+        "url": "https://nickydollars.ai/",
+        "jobTitle": "Founder, NickyDollars.ai",
+        "description": "Camera assistant for 20+ years, now a Camera Service Technician at a cinema rental house, building websites and AI systems for film, entertainment and advertising.",
+        "worksFor": { "@id": "https://nickydollars.ai/#studio" },
+        "sameAs": []
+      }
+    ]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
@@ -24,6 +78,7 @@
       --muted:      #777;
       --faint:      #3a3a3a;
       --green:      #00c896;
+      --amber:      #febc2e;
       --font-display: 'Bebas Neue', sans-serif;
       --font-body:    'DM Sans', sans-serif;
       --font-mono:    'Space Mono', monospace;
@@ -31,6 +86,10 @@
 
     html { scroll-behavior: smooth; }
     body { background: var(--black); color: var(--white); font-family: var(--font-body); font-size: 16px; line-height: 1.7; overflow-x: hidden; }
+    [hidden] { display: none !important; }
+
+    /* Visible placeholder for content still to be supplied — search the file for "[ADD:" */
+    .ph { font-family: var(--font-mono); font-size: 0.85em; color: var(--amber); background: rgba(254,188,46,0.08); border: 1px dashed rgba(254,188,46,0.45); border-radius: 4px; padding: 1px 6px; }
 
     /* NAV */
     nav {
@@ -54,16 +113,17 @@
     .mobile-nav.open { display: flex; }
     .mobile-nav a { font-family: var(--font-display); font-size: 52px; color: var(--white); text-decoration: none; transition: color 0.2s; }
     .mobile-nav a:hover { color: var(--green); }
+    .mobile-nav a.mobile-cta { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.12em; color: var(--black); background: var(--green); padding: 14px 32px; border-radius: 4px; margin-top: 8px; }
     .mobile-close { position: absolute; top: 20px; right: 28px; background: none; border: none; color: var(--white); font-size: 28px; cursor: pointer; }
 
     /* HERO */
     #hero {
-      min-height: 100vh; 
-      display: flex; 
-      align-items: flex-end; 
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-end;
       justify-content: flex-start;
-      padding: 100px 48px 80px; 
-      position: relative; 
+      padding: 100px 48px 96px;
+      position: relative;
       overflow: hidden;
     }
     .hero-image-wrap {
@@ -89,8 +149,8 @@
       );
     }
     .hero-image-bottom {
-      position: absolute; bottom: 0; left: 0; right: 0; height: 45%;
-      background: linear-gradient(to top, rgba(8,8,8,1) 0%, rgba(8,8,8,0.5) 60%, transparent 100%);
+      position: absolute; bottom: 0; left: 0; right: 0; height: 60%;
+      background: linear-gradient(to top, rgba(8,8,8,1) 0%, rgba(8,8,8,0.6) 55%, transparent 100%);
     }
     .hero-spark {
       position: absolute;
@@ -115,40 +175,39 @@
       background-image: linear-gradient(rgba(0,200,150,0.028) 1px, transparent 1px), linear-gradient(90deg, rgba(0,200,150,0.028) 1px, transparent 1px);
       background-size: 48px 48px;
     }
-    .hero-fade { display: none; }
+    .hero-content { position: relative; z-index: 2; max-width: 980px; }
     .hero-slogan {
-      font-family: var(--font-display); 
-      font-size: clamp(72px, 10vw, 136px); 
-      line-height: 0.9; 
-      color: var(--white); 
-      position: absolute;
-      bottom: 120px;
-      left: 48px;
-      margin: 0;
-      z-index: 2;
+      font-family: var(--font-display);
+      font-size: clamp(56px, 9vw, 128px);
+      line-height: 0.9;
+      color: var(--white);
+      margin: 0 0 24px;
     }
     .hero-slogan .accent { color: var(--green); }
-    .hero-sub { font-family: var(--font-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.16em; margin-bottom: 48px; position: relative; }
-    .hero-cta-row { display: flex; align-items: center; gap: 24px; position: relative; }
+    .hero-sub { font-family: var(--font-mono); font-size: 12px; color: #aaa; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 36px; max-width: 620px; line-height: 1.7; }
+    .hero-cta-row { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
     .btn-primary { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; color: var(--black); background: var(--green); padding: 14px 32px; border-radius: 4px; text-decoration: none; transition: opacity 0.2s; }
     .btn-primary:hover { opacity: 0.85; }
     .btn-ghost { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; color: var(--muted); text-decoration: none; transition: color 0.2s; }
     .btn-ghost:hover { color: var(--white); }
 
     /* SECTION COMMON */
-    section { padding: 96px 48px; }
+    section { padding: 96px 48px; scroll-margin-top: 60px; }
     .section-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.25em; color: var(--green); text-transform: uppercase; margin-bottom: 16px; }
     .section-heading { font-family: var(--font-display); font-size: clamp(48px, 6vw, 80px); color: var(--white); line-height: 1; margin-bottom: 52px; }
+    .section-intro { font-size: 16px; color: #999; font-weight: 300; max-width: 640px; margin: -32px 0 52px; }
 
     /* PORTFOLIO */
     #work { background: var(--black); border-top: 0.5px solid var(--border); }
-    .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+    .portfolio-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+    .portfolio-grid + .portfolio-grid { margin-top: 20px; }
+    .portfolio-sublabel { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.25em; color: var(--muted); text-transform: uppercase; margin: 56px 0 20px; }
 
-    .p-card { border-radius: 14px; overflow: hidden; transition: transform 0.3s ease; background: inherit;}
+    .p-card { border-radius: 14px; overflow: hidden; transition: transform 0.3s ease; background: inherit; display: flex; flex-direction: column; }
     .p-card:hover { transform: translateY(-6px); }
-    .p-browser { 
-      padding: 10px 12px 0; 
-      background: inherit; 
+    .p-browser {
+      padding: 10px 12px 0;
+      background: inherit;
     }
     .p-browser-bar { display: flex; align-items: center; gap: 5px; margin-bottom: 10px; }
     .p-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
@@ -157,128 +216,119 @@
     .p-screen {
       border-radius: 6px 6px 0 0;
       overflow: hidden;
-      height: 210px;
+      height: 240px;
       position: relative;
       background: #0a0a0a;
     }
-
     .p-screen img {
-      width: 100% !important;
-      height: 100% !important;
+      display: block;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
-      object-position: top;
+      object-position: top center;
     }
 
-    .p-body { padding: 22px 22px 26px; }
-    .p-tag { display: inline-block; font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 10px; border-radius: 100px; margin-bottom: 12px; }
-    .p-title { font-family: var(--font-display); font-size: 32px; color: var(--white); line-height: 1; margin-bottom: 18px; }
-    .p-features { list-style: none; display: flex; flex-direction: column; gap: 9px; margin-bottom: 24px; }
+    .p-body { padding: 22px 22px 26px; display: flex; flex-direction: column; flex: 1; }
+    .p-tag { align-self: flex-start; display: inline-block; font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 10px; border-radius: 100px; margin-bottom: 12px; background: rgba(0,200,150,0.08); color: var(--green); border: 0.5px solid rgba(0,200,150,0.18); }
+    .p-title { font-family: var(--font-display); font-size: 32px; color: var(--white); line-height: 1; margin-bottom: 20px; }
+    .p-features { list-style: none; display: flex; flex-direction: column; gap: 9px; }
     .p-features li { font-size: 13px; color: #888; font-weight: 300; line-height: 1.45; display: flex; align-items: flex-start; gap: 10px; }
     .p-features li::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--green); opacity: 0.55; margin-top: 6px; flex-shrink: 0; }
-    .p-link { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-decoration: none; color: var(--green); display: inline-flex; align-items: center; gap: 6px; transition: gap 0.2s; }
+    .p-link { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-decoration: none; color: var(--green); display: inline-flex; align-items: center; gap: 6px; transition: gap 0.2s; margin-top: auto; padding-top: 24px; }
     .p-link:hover { gap: 10px; }
 
-    /* WIN card */
-    .p-card-win { background: #080d18; border: 0.5px solid #16284a; }
-    .p-card-win .p-browser { background: #060b15; }
-    .p-card-win .p-tag { background: rgba(0,200,150,0.09); color: var(--green); border: 0.5px solid rgba(0,200,150,0.2); }
-    .win-screen { background: #040a16; height: 100%; display: flex; flex-direction: column; }
-    .win-nav { display: flex; align-items: center; justify-content: space-between; padding: 8px 14px; border-bottom: 0.5px solid rgba(0,200,150,0.1); }
-    .win-logo-text { font-family: var(--font-display); font-size: 13px; color: var(--green); letter-spacing: 0.15em; }
-    .win-navlinks { display: flex; gap: 10px; }
-    .win-navlink { width: 22px; height: 3px; background: rgba(255,255,255,0.08); border-radius: 2px; }
-    .win-hero { padding: 16px 14px 8px; position: relative; flex: 1; }
-    .win-eyebrow { font-family: var(--font-mono); font-size: 7px; color: var(--green); opacity: 0.6; letter-spacing: 0.2em; margin-bottom: 6px; }
-    .win-headline { font-family: var(--font-display); font-size: 26px; line-height: 1; color: var(--white); margin-bottom: 8px; }
-    .win-sub { font-size: 8px; color: rgba(255,255,255,0.28); line-height: 1.6; max-width: 150px; }
-    .win-reel { position: absolute; right: 12px; top: 12px; width: 84px; height: 56px; background: rgba(0,200,150,0.04); border: 0.5px solid rgba(0,200,150,0.16); border-radius: 6px; display: flex; align-items: center; justify-content: center; }
-    .win-play { width: 0; height: 0; border-style: solid; border-width: 8px 0 8px 14px; border-color: transparent transparent transparent rgba(0,200,150,0.5); }
-    .win-directors { padding: 10px 14px 0; display: flex; gap: 8px; }
-    .win-dir { width: 54px; height: 38px; background: rgba(255,255,255,0.02); border: 0.5px solid rgba(255,255,255,0.05); border-radius: 4px; display: flex; align-items: flex-end; padding: 3px; }
-    .win-dir-label { font-size: 6px; color: rgba(255,255,255,0.22); font-family: var(--font-mono); }
-    .win-dir-more { align-items: center; justify-content: center; }
-    .win-dir-more span { font-size: 11px; color: rgba(0,200,150,0.38); }
+    /* Case study: Problem → What I Built → Result */
+    .cs-block { margin-bottom: 18px; }
+    .cs-label { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+    .cs-text { font-size: 14px; color: #999; font-weight: 300; line-height: 1.55; }
+    .cs-result .cs-label { color: var(--green); }
+    .cs-result .cs-text { color: var(--white); font-weight: 400; }
+    .cs-result .ph { display: inline-block; margin-top: 6px; }
+    .p-teaser { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-top: 4px; }
+    .p-teaser::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--green); animation: sparkBlink 2s ease-in-out infinite; }
+    @keyframes sparkBlink { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
 
-    /* Brian card */
+    /* Flagship (full-width) card */
+    .p-card-feature { grid-column: 1 / -1; display: grid; grid-template-columns: 1.25fr 1fr; }
+    .p-card-feature .p-browser { padding: 12px 0 12px 12px; display: flex; flex-direction: column; }
+    .p-card-feature .p-screen { height: auto; flex: 1; min-height: 360px; border-radius: 6px; }
+    .p-card-feature .p-screen img { object-position: left top; }
+    .p-card-feature .p-body { padding: 32px 32px 32px; }
+    .p-card-feature .p-title { font-size: 44px; }
+
+    /* Compact cards */
+    .p-card-sm .p-screen { height: 180px; }
+    .p-card-sm .p-title { font-size: 28px; }
+
+    /* Card palettes */
+    .p-card-otto  { background: #0e0b05; border: 0.5px solid #3a2e12; }
+    .p-card-otto .p-browser { background: #0a0803; }
+    .p-card-win   { background: #080d18; border: 0.5px solid #16284a; }
+    .p-card-win .p-browser { background: #060b15; }
+    .p-card-joe   { background: #0a1124; border: 0.5px solid #1d2c55; }
+    .p-card-joe .p-browser { background: #070d1d; }
     .p-card-brian { background: #0d0800; border: 0.5px solid #2e1f00; }
     .p-card-brian .p-browser { background: #090600; }
-    .p-card-brian .p-tag { background: rgba(0,200,150,0.07); color: var(--green); border: 0.5px solid rgba(0,200,150,0.16); }
-    .brian-screen { background: #080400; height: 100%; display: flex; flex-direction: column; }
-    .brian-nav { display: flex; align-items: center; justify-content: space-between; padding: 7px 12px; border-bottom: 0.5px solid rgba(180,120,30,0.14); }
-    .brian-logo { font-family: var(--font-display); font-size: 11px; color: #c89632; letter-spacing: 0.1em; }
-    .brian-navlinks { display: flex; gap: 8px; }
-    .brian-navlink { font-size: 6px; color: rgba(255,255,255,0.2); font-family: var(--font-mono); }
-    .brian-hero { height: 112px; background: linear-gradient(135deg, #160c00 0%, #241400 50%, #160c00 100%); position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0; }
-    .brian-drum { width: 72px; height: 72px; border-radius: 50%; border: 1.5px solid rgba(200,150,50,0.28); display: flex; align-items: center; justify-content: center; position: relative; }
-    .brian-drum::after { content: ''; position: absolute; width: 52px; height: 52px; border-radius: 50%; border: 1px solid rgba(200,150,50,0.12); }
-    .brian-drum-inner { width: 32px; height: 32px; border-radius: 50%; border: 1px solid rgba(200,150,50,0.32); }
-    .brian-name-overlay { position: absolute; bottom: 8px; left: 12px; }
-    .brian-name { font-family: var(--font-display); font-size: 20px; color: #c89632; line-height: 1; }
-    .brian-role { font-size: 7px; color: rgba(200,150,50,0.38); font-family: var(--font-mono); letter-spacing: 0.1em; }
-    .brian-stats { display: flex; padding: 8px 12px; gap: 16px; }
-    .brian-stat { display: flex; flex-direction: column; align-items: center; }
-    .brian-stat-num { font-family: var(--font-display); font-size: 17px; color: #c89632; line-height: 1; }
-    .brian-stat-label { font-size: 6px; color: rgba(255,255,255,0.2); font-family: var(--font-mono); letter-spacing: 0.04em; text-align: center; line-height: 1.3; max-width: 42px; }
-
-    /* ATL card */
-    .p-card-atl { background: #080808; border: 0.5px solid #1e1e1e; }
+    .p-card-atl   { background: #080808; border: 0.5px solid #1e1e1e; }
     .p-card-atl .p-browser { background: #050505; }
-    .p-card-atl .p-tag { background: rgba(0,200,150,0.06); color: var(--green); border: 0.5px solid rgba(0,200,150,0.14); }
-    .atl-screen { background: #060606; height: 100%; display: flex; flex-direction: column; }
-    .atl-nav { display: flex; align-items: center; justify-content: space-between; padding: 6px 12px; border-bottom: 0.5px solid rgba(255,255,255,0.05); }
-    .atl-logo { font-family: var(--font-mono); font-size: 8px; color: rgba(255,255,255,0.38); letter-spacing: 0.1em; }
-    .atl-badge { font-size: 7px; color: rgba(255,255,255,0.16); font-family: var(--font-mono); border: 0.5px solid rgba(255,255,255,0.07); border-radius: 3px; padding: 2px 5px; }
-    .atl-hero { height: 100px; position: relative; overflow: hidden; display: flex; align-items: flex-end; flex-shrink: 0; }
-    .atl-grid-bg { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px); background-size: 16px 16px; }
-    .atl-photo { position: absolute; right: 0; top: 0; width: 88px; height: 100%; background: linear-gradient(135deg, #181818 0%, #242424 100%); display: flex; align-items: center; justify-content: center; }
-    .atl-photo-icon { font-size: 26px; opacity: 0.1; }
-    .atl-photo-grad { position: absolute; right: 0; top: 0; width: 88px; height: 100%; background: linear-gradient(to right, #060606 0%, transparent 45%); }
-    .atl-hero-text { position: relative; z-index: 1; padding: 0 12px 10px; }
-    .atl-union { font-family: var(--font-mono); font-size: 7px; color: rgba(255,255,255,0.2); letter-spacing: 0.15em; margin-bottom: 4px; }
-    .atl-name { font-family: var(--font-display); font-size: 22px; color: var(--white); line-height: 1; }
-    .atl-role { font-size: 7px; color: rgba(255,255,255,0.28); font-family: var(--font-mono); letter-spacing: 0.08em; margin-top: 3px; }
-    .atl-credits { padding: 8px 12px; display: flex; flex-wrap: wrap; gap: 4px; }
-    .atl-credit { font-size: 7px; color: rgba(255,255,255,0.26); background: rgba(255,255,255,0.03); border: 0.5px solid rgba(255,255,255,0.06); border-radius: 3px; padding: 2px 6px; font-family: var(--font-mono); }
-    .atl-credit.hot { color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1); }
 
     /* SERVICES */
     #services { background: var(--surface); border-top: 0.5px solid var(--border); }
-    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1px; background: var(--border); border: 0.5px solid var(--border); border-radius: 12px; overflow: hidden; }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 1px; background: var(--border); border: 0.5px solid var(--border); border-radius: 12px; overflow: hidden; }
     .service-card { background: var(--surface); padding: 40px 32px; transition: background 0.2s; }
     .service-card:hover { background: var(--surface2); }
     .service-num { font-family: var(--font-mono); font-size: 10px; color: var(--green); letter-spacing: 0.2em; margin-bottom: 18px; }
-    .service-title { font-family: var(--font-display); font-size: 34px; color: var(--white); line-height: 1; margin-bottom: 12px; }
+    .service-title { font-family: var(--font-display); font-size: 34px; color: var(--white); line-height: 1; margin-bottom: 14px; }
+    .service-outcome { font-size: 17px; color: var(--white); line-height: 1.4; font-weight: 500; margin-bottom: 10px; }
     .service-desc { font-size: 14px; color: var(--muted); line-height: 1.6; font-weight: 300; margin-bottom: 22px; }
     .service-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-    .service-list li { font-family: var(--font-mono); font-size: 11px; color: var(--faint); letter-spacing: 0.04em; display: flex; align-items: center; gap: 10px; }
-    .service-list li::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--green); opacity: 0.4; flex-shrink: 0; }
+    .service-list li { font-family: var(--font-mono); font-size: 11px; color: #5c5c5c; letter-spacing: 0.04em; display: flex; align-items: flex-start; gap: 10px; line-height: 1.5; }
+    .service-list li::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--green); opacity: 0.4; flex-shrink: 0; margin-top: 7px; }
 
     /* ABOUT */
     #about { background: var(--black); border-top: 0.5px solid var(--border); }
     .about-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
-    .about-statement { font-family: var(--font-display); font-size: clamp(36px, 4vw, 58px); color: var(--white); line-height: 1.05; margin-bottom: 0; }
+    .about-statement { font-family: var(--font-display); font-size: clamp(40px, 4.4vw, 64px); color: var(--white); line-height: 1.02; margin-bottom: 40px; }
     .about-statement em { color: var(--green); font-style: normal; }
     .about-body p { font-size: 15px; color: #999; font-weight: 300; line-height: 1.8; margin-bottom: 18px; }
     .about-body p strong { color: var(--white); font-weight: 500; }
-    .about-mono { font-family: var(--font-mono); font-size: 11px; color: var(--faint); letter-spacing: 0.1em; margin-top: 8px; }
+    .about-mono { font-family: var(--font-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.1em; margin-top: 28px; text-transform: uppercase; }
+    .about-photo { border-radius: 14px; overflow: hidden; background: var(--surface); border: 0.5px solid var(--border-mid); max-width: 460px; }
+    .about-photo .p-browser { background: var(--surface); padding-bottom: 12px; }
+    .about-photo-frame { aspect-ratio: 4 / 5; border-radius: 6px; background: repeating-linear-gradient(135deg, #111 0 12px, #0c0c0c 12px 24px); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .about-photo-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    /* TESTIMONIALS */
+    .testimonials { margin-top: 80px; }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 20px; }
+    .testimonial { background: var(--surface); border: 0.5px solid var(--border-mid); border-radius: 14px; padding: 28px; }
+    .testimonial blockquote { font-size: 16px; color: var(--white); font-weight: 300; line-height: 1.6; margin-bottom: 20px; }
+    .testimonial blockquote::before { content: '“'; display: block; font-family: var(--font-display); font-size: 48px; color: var(--green); line-height: 0.6; margin-bottom: 8px; }
+    .testimonial figcaption { font-family: var(--font-mono); font-size: 10px; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; }
 
     /* CONTACT */
     #contact { background: var(--surface); border-top: 0.5px solid var(--border); }
     .contact-layout { display: grid; grid-template-columns: 1fr 1.3fr; gap: 80px; align-items: start; }
+    .contact-intro { font-size: 16px; color: #999; font-weight: 300; margin: -32px 0 40px; max-width: 420px; }
     .contact-info-item { margin-bottom: 26px; }
-    .contact-info-label { font-family: var(--font-mono); font-size: 10px; color: var(--faint); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 6px; }
+    .contact-info-label { font-family: var(--font-mono); font-size: 10px; color: var(--muted); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 6px; }
     .contact-info-value { font-size: 15px; color: var(--white); }
     .contact-info-value a { color: var(--white); text-decoration: none; transition: color 0.2s; }
     .contact-info-value a:hover { color: var(--green); }
+    .contact-signoff { font-family: var(--font-mono); font-size: 10px; color: var(--green); letter-spacing: 0.18em; margin-top: 40px; }
     .contact-form { display: flex; flex-direction: column; gap: 16px; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .form-field { display: flex; flex-direction: column; gap: 6px; }
-    .form-field label { font-family: var(--font-mono); font-size: 10px; color: var(--faint); letter-spacing: 0.12em; text-transform: uppercase; }
-    .form-field input, .form-field select, .form-field textarea { background: var(--surface2); border: 0.5px solid var(--border-mid); border-radius: 6px; color: var(--white); font-family: var(--font-body); font-size: 14px; padding: 12px 16px; outline: none; transition: border-color 0.2s; -webkit-appearance: none; }
+    .form-field { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+    .form-field label { font-family: var(--font-mono); font-size: 10px; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; }
+    .form-field label .opt { color: var(--faint); }
+    .form-field input, .form-field select, .form-field textarea { width: 100%; background: var(--surface2); border: 0.5px solid var(--border-mid); border-radius: 6px; color: var(--white); font-family: var(--font-body); font-size: 16px; padding: 12px 16px; outline: none; transition: border-color 0.2s; -webkit-appearance: none; appearance: none; }
+    .form-field select { padding-right: 40px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23777' stroke-width='1.5'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; }
+    .form-field select:invalid { color: var(--faint); }
     .form-field input::placeholder, .form-field textarea::placeholder { color: var(--faint); }
     .form-field input:focus, .form-field select:focus, .form-field textarea:focus { border-color: var(--green); }
-    .form-field select option { background: #1a1a1a; }
-    .form-field textarea { resize: vertical; min-height: 120px; }
+    .form-field select option { background: #1a1a1a; color: var(--white); }
+    .form-field textarea { resize: vertical; min-height: 140px; }
+    .form-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
     .btn-submit { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; color: var(--black); background: var(--green); border: none; padding: 15px 32px; border-radius: 6px; cursor: pointer; transition: opacity 0.2s; align-self: flex-start; }
     .btn-submit:hover { opacity: 0.85; }
 
@@ -290,18 +340,23 @@
     .footer-copy { font-family: var(--font-mono); font-size: 10px; color: var(--faint); letter-spacing: 0.08em; }
 
     /* RESPONSIVE */
+    @media (max-width: 1100px) {
+      .p-card-feature { grid-template-columns: 1fr; }
+      .p-card-feature .p-browser { padding: 10px 12px 0; }
+      .p-card-feature .p-screen { min-height: 0; height: 300px; border-radius: 6px 6px 0 0; }
+    }
     @media (max-width: 860px) {
       nav { padding: 0 20px; }
       .nav-links, .nav-cta { display: none; }
       .nav-mobile-toggle { display: block; }
-      .hero-slogan {
-        left: 20px;
-        bottom: 100px;
-      }
-      #hero { padding: 90px 20px 60px; }
+      #hero { padding: 90px 20px 64px; }
+      .hero-sub { font-size: 11px; }
       section { padding: 64px 20px; }
       .about-layout, .contact-layout { grid-template-columns: 1fr; gap: 40px; }
-      .form-row { grid-template-columns: 1fr; }
+      .form-row, .portfolio-grid { grid-template-columns: 1fr; }
+      .p-screen, .p-card-feature .p-screen { height: 210px; }
+      .p-card-feature .p-body { padding: 22px 22px 26px; }
+      .p-card-feature .p-title { font-size: 36px; }
       footer { padding: 28px 20px; flex-direction: column; align-items: flex-start; }
     }
   </style>
@@ -319,15 +374,16 @@
       <li><a href="#contact">Contact</a></li>
     </ul>
     <a href="#contact" class="nav-cta">START A PROJECT</a>
-    <button class="nav-mobile-toggle" onclick="document.querySelector('.mobile-nav').classList.toggle('open')">☰</button>
+    <button class="nav-mobile-toggle" aria-label="Open menu" onclick="document.querySelector('.mobile-nav').classList.toggle('open')">☰</button>
   </nav>
 
   <div class="mobile-nav">
-    <button class="mobile-close" onclick="document.querySelector('.mobile-nav').classList.remove('open')">✕</button>
+    <button class="mobile-close" aria-label="Close menu" onclick="document.querySelector('.mobile-nav').classList.remove('open')">✕</button>
     <a href="#work"     onclick="document.querySelector('.mobile-nav').classList.remove('open')">Work</a>
     <a href="#services" onclick="document.querySelector('.mobile-nav').classList.remove('open')">Services</a>
     <a href="#about"    onclick="document.querySelector('.mobile-nav').classList.remove('open')">Studio</a>
     <a href="#contact"  onclick="document.querySelector('.mobile-nav').classList.remove('open')">Contact</a>
+    <a href="#contact"  class="mobile-cta" onclick="document.querySelector('.mobile-nav').classList.remove('open')">START A PROJECT</a>
   </div>
 
   <section id="hero">
@@ -338,21 +394,70 @@
       <div class="hero-spark"></div>
     </div>
     <div class="hero-grid"></div>
-    
-    <h1 class="hero-slogan" style="position: absolute; bottom: 120px; left: 48px; margin-bottom: 0;">
-      Computers can do <span class="accent">anything.</span>
-    </h1>
 
-    <!-- Removed subtext and both buttons as requested -->
+    <div class="hero-content">
+      <h1 class="hero-slogan">Built on set.<br>Built for your <span class="accent">business.</span></h1>
+      <p class="hero-sub">Websites and AI systems for film, entertainment &amp; advertising.</p>
+      <div class="hero-cta-row">
+        <a href="#contact" class="btn-primary">START A PROJECT</a>
+        <a href="#work" class="btn-ghost">SEE THE WORK →</a>
+      </div>
+    </div>
   </section>
 
 <section id="work">
   <p class="section-label">Selected Work</p>
   <h2 class="section-heading">The Work</h2>
+  <p class="section-intro">Every project starts with a business problem. Here's what each client was up against, what I built, and what changed.</p>
   <div class="portfolio-grid">
 
-    <!-- WIN -->
-    <div class="p-card p-card-win">
+    <!-- ============================================================
+         FEATURE FLAG: OTTO NEMENZ (flagship case study)
+         Hidden until permission is confirmed.
+         TO SHOW IT: delete the word  hidden  from the <article> tag below.
+         ============================================================ -->
+    <article class="p-card p-card-feature p-card-otto" hidden>
+      <div class="p-browser">
+        <div class="p-browser-bar">
+          <div class="p-dot" style="background:#ff5f57"></div>
+          <div class="p-dot" style="background:#febc2e"></div>
+          <div class="p-dot" style="background:#28c840"></div>
+          <div class="p-url"></div>
+          <span class="p-url-text">ottonemenz.com</span>
+        </div>
+        <div class="p-screen">
+          <img src="ottonemenz.webp" alt="Otto Nemenz International homepage" width="1280" height="800" loading="lazy">
+        </div>
+      </div>
+      <div class="p-body">
+        <span class="p-tag">Cinema Camera &amp; Lens Rental</span>
+        <h3 class="p-title">Otto Nemenz International</h3>
+        <div class="cs-block">
+          <p class="cs-label">Problem</p>
+          <p class="cs-text">A world-class cinema camera &amp; lens rental house on an outdated site. Inventory was hard to browse, and rental inquiries had no system behind them.</p>
+        </div>
+        <div class="cs-block">
+          <p class="cs-label">What I Built</p>
+          <ul class="p-features">
+            <li>Full rebuild of the site</li>
+            <li>Searchable lens catalog that staff manage from an Airtable database</li>
+            <li>Rental inquiry pipeline that routes to the right people</li>
+            <li>LA &amp; Atlanta location pages with live credit marquees</li>
+            <li>Productions poster wall</li>
+            <li>Structured data (JSON-LD) so Google understands every product</li>
+          </ul>
+        </div>
+        <div class="cs-block cs-result">
+          <p class="cs-label">Result</p>
+          <p class="cs-text">Staff update inventory without touching code, and every inquiry reaches the right person automatically.<br><span class="ph">[ADD: traffic/inquiry/search results]</span></p>
+        </div>
+        <a href="https://ottonemenz.com" class="p-link" target="_blank" rel="noopener">View Project →</a>
+      </div>
+    </article>
+    <!-- /FEATURE FLAG: OTTO NEMENZ -->
+
+    <!-- WANTED INTERNATIONAL -->
+    <article class="p-card p-card-win">
       <div class="p-browser">
         <div class="p-browser-bar">
           <div class="p-dot" style="background:#ff5f57"></div>
@@ -362,26 +467,82 @@
           <span class="p-url-text">wanted.international</span>
         </div>
         <div class="p-screen">
-          <img src="WIN.jpg" alt="Wanted International" style="width:100%; height:100%; object-fit:cover; object-position:top center;">
+          <img src="WIN.webp" alt="Wanted International homepage" width="1280" height="800" loading="lazy">
         </div>
       </div>
       <div class="p-body">
         <span class="p-tag">Creative Production</span>
-        <div class="p-title">Wanted International</div>
-        <ul class="p-features">
-          <li>Custom video player built for a video-heavy site</li>
-          <li>Animated load screen</li>
-          <li>Voice / microphone brief submission</li>
-          <li>Automated visitor confirmation emails</li>
-          <li>Producer inbox alert system</li>
-          <li>Performance optimized throughout</li>
-        </ul>
+        <h3 class="p-title">Wanted International</h3>
+        <div class="cs-block">
+          <p class="cs-label">Problem</p>
+          <p class="cs-text">A creative production network whose work is all video. They needed a site that shows it off and turns visitors into briefs.</p>
+        </div>
+        <div class="cs-block">
+          <p class="cs-label">What I Built</p>
+          <ul class="p-features">
+            <li>Custom video player built for a video-heavy site</li>
+            <li>Voice / microphone brief submission</li>
+            <li>Automatic visitor confirmation emails and producer inbox alerts</li>
+            <li>Animated load screen</li>
+            <li>Performance optimized throughout</li>
+            <li>Google Workspace migration for the team</li>
+          </ul>
+        </div>
+        <div class="cs-block cs-result">
+          <p class="cs-label">Result</p>
+          <p class="cs-text">Briefs land in producers' inboxes the moment they come in, and every visitor gets an instant reply. No one does it by hand.<br><span class="ph">[ADD: results]</span></p>
+        </div>
+        <!-- UPDATE ME: Wanted International platform teaser. Edit the text or delete this line when the platform launches. -->
+        <p class="p-teaser">Platform in progress, coming soon</p>
         <a href="https://wanted.international" class="p-link" target="_blank" rel="noopener">View Project →</a>
       </div>
-    </div>
+    </article>
+
+    <!-- JOE KRAKOVIAK FOR MAYOR -->
+    <article class="p-card p-card-joe">
+      <div class="p-browser">
+        <div class="p-browser-bar">
+          <div class="p-dot" style="background:#ff5f57"></div>
+          <div class="p-dot" style="background:#febc2e"></div>
+          <div class="p-dot" style="background:#28c840"></div>
+          <div class="p-url"></div>
+          <span class="p-url-text">joekrakoviak.com</span>
+        </div>
+        <div class="p-screen">
+          <img src="joekrakoviak.webp" alt="Joe Krakoviak for Mayor homepage" width="1280" height="800" loading="lazy">
+        </div>
+      </div>
+      <div class="p-body">
+        <span class="p-tag">Political Campaign</span>
+        <h3 class="p-title">Joe Krakoviak for Mayor</h3>
+        <div class="cs-block">
+          <p class="cs-label">Problem</p>
+          <p class="cs-text">A mayoral campaign on NationBuilder with a failing donation form, and a site that had to change fast as the race moved.</p>
+        </div>
+        <div class="cs-block">
+          <p class="cs-label">What I Built</p>
+          <ul class="p-features">
+            <li>Redesign of every page inside NationBuilder</li>
+            <li>Stripe donation fix</li>
+            <li>Custom wordmark logo</li>
+            <li>Policy video section tied to each issue it explains</li>
+          </ul>
+        </div>
+        <div class="cs-block cs-result">
+          <p class="cs-label">Result</p>
+          <p class="cs-text">Donations process reliably, and new content goes live the same day.<br><span class="ph">[ADD: results]</span></p>
+        </div>
+        <a href="https://joekrakoviak.com" class="p-link" target="_blank" rel="noopener">View Project →</a>
+      </div>
+    </article>
+
+  </div>
+
+  <p class="portfolio-sublabel">More Builds</p>
+  <div class="portfolio-grid">
 
     <!-- BRIAN DAGGETT -->
-    <div class="p-card p-card-brian">
+    <article class="p-card p-card-sm p-card-brian">
       <div class="p-browser">
         <div class="p-browser-bar">
           <div class="p-dot" style="background:#ff5f57"></div>
@@ -391,22 +552,33 @@
           <span class="p-url-text">briandaggettdrums.com</span>
         </div>
         <div class="p-screen">
-          <img src="briandaggettdrums.jpg" alt="Brian Daggett" style="width:100%; height:100%; object-fit:cover; object-position:top center;">
+          <img src="briandaggettdrums.webp" alt="Brian Daggett Drums homepage" width="1280" height="800" loading="lazy">
         </div>
       </div>
       <div class="p-body">
         <span class="p-tag">Music / Artist</span>
-        <div class="p-title">Brian Daggett</div>
-        <ul class="p-features">
-          <li>Custom CMS backend — client manages his own video playlists</li>
-          <li>Animated load screen</li>
-        </ul>
+        <h3 class="p-title">Brian Daggett</h3>
+        <div class="cs-block">
+          <p class="cs-label">Problem</p>
+          <p class="cs-text">His content changes constantly, and every update meant relying on a developer.</p>
+        </div>
+        <div class="cs-block">
+          <p class="cs-label">What I Built</p>
+          <ul class="p-features">
+            <li>Custom admin backend where he manages his own video playlists</li>
+            <li>Animated load screen</li>
+          </ul>
+        </div>
+        <div class="cs-block cs-result">
+          <p class="cs-label">Result</p>
+          <p class="cs-text">He updates his own videos without calling me.</p>
+        </div>
         <a href="https://briandaggettdrums.com" class="p-link" target="_blank" rel="noopener">View Project →</a>
       </div>
-    </div>
+    </article>
 
     <!-- ATLANTA 1ST AC -->
-    <div class="p-card p-card-atl">
+    <article class="p-card p-card-sm p-card-atl">
       <div class="p-browser">
         <div class="p-browser-bar">
           <div class="p-dot" style="background:#ff5f57"></div>
@@ -416,61 +588,206 @@
           <span class="p-url-text">atlanta1stac.com</span>
         </div>
         <div class="p-screen">
-          <img src="atlanta1stac.jpg" alt="Atlanta 1st AC" style="width:100%; height:100%; object-fit:cover; object-position:top center;">
+          <img src="atlanta1stac.webp" alt="Atlanta 1st AC homepage" width="1280" height="800" loading="lazy">
         </div>
       </div>
       <div class="p-body">
-        <span class="p-tag">Film / Personal Brand</span>
-        <div class="p-title">Atlanta 1st AC</div>
-        <ul class="p-features">
-          <li>Landscape on desktop, portrait on mobile — each optimized for how the content is consumed</li>
-          <li>Image optimized for a photo-heavy site</li>
-          <li>Scrolling marquee credit reel</li>
-        </ul>
+        <span class="p-tag">Film Crew / Personal Brand</span>
+        <h3 class="p-title">Atlanta 1st AC</h3>
+        <div class="cs-block">
+          <p class="cs-label">Problem</p>
+          <p class="cs-text">A camera assistant's portfolio is mostly photos and credits, and it has to look right whether a producer opens it on a laptop or a phone.</p>
+        </div>
+        <div class="cs-block">
+          <p class="cs-label">What I Built</p>
+          <ul class="p-features">
+            <li>Landscape layout on desktop and portrait on mobile, each designed for how the content is viewed</li>
+            <li>Image optimization for a photo-heavy site</li>
+            <li>Scrolling credit marquee</li>
+          </ul>
+        </div>
+        <div class="cs-block cs-result">
+          <p class="cs-label">Result</p>
+          <p class="cs-text">A photo-heavy portfolio built for every screen, with credits always in motion.</p>
+        </div>
         <a href="https://atlanta1stac.com" class="p-link" target="_blank" rel="noopener">View Project →</a>
       </div>
-    </div>
+    </article>
 
   </div>
 </section>
 
   <section id="services">
-    <p class="section-label">What We Build</p>
+    <p class="section-label">What I Build</p>
     <h2 class="section-heading">Services</h2>
     <div class="services-grid">
       <div class="service-card">
         <div class="service-num">01</div>
         <div class="service-title">Web Design</div>
-        <p class="service-desc">Purpose-built sites. Not templates.</p>
+        <p class="service-outcome">A site that wins you the job.</p>
+        <p class="service-desc">Your site is often the first reel a client sees. I build fast, custom sites that make production companies, agencies, rental houses and crew look like the obvious hire.</p>
         <ul class="service-list">
-          <li>Custom design &amp; development</li>
-          <li>Mobile-first</li>
-          <li>Landing pages &amp; full sites</li>
-          <li>Maintenance retainers</li>
+          <li>Production company &amp; agency sites</li>
+          <li>Rental house inventory catalogs</li>
+          <li>Reel &amp; portfolio sites for crew and talent</li>
+          <li>Content you update yourself, no developer required</li>
         </ul>
       </div>
       <div class="service-card">
         <div class="service-num">02</div>
         <div class="service-title">Automations</div>
-        <p class="service-desc">Systems that work while you sleep.</p>
+        <p class="service-outcome">Every inquiry answered. Nobody doing it by hand.</p>
+        <p class="service-desc">Briefs, rental requests and booking inquiries route themselves to the right person, and the sender hears back right away, so you don't lose work to a slow reply.</p>
         <ul class="service-list">
-          <li>Email &amp; SMS sequences</li>
-          <li>CRM &amp; pipeline integration</li>
-          <li>AI-powered workflows</li>
-          <li>Form-to-action automation</li>
+          <li>Inquiry &amp; brief intake that routes itself</li>
+          <li>Instant confirmations &amp; team alerts</li>
+          <li>Inventory &amp; database sync (Airtable, Google Workspace)</li>
+          <li>Form-to-action workflows</li>
         </ul>
       </div>
       <div class="service-card">
         <div class="service-num">03</div>
         <div class="service-title">AI Systems</div>
-        <p class="service-desc">The gap between possible and done.</p>
+        <p class="service-outcome">Hours back for your team, every week.</p>
+        <p class="service-desc">AI-assisted workflows take the repetitive work (sorting, tagging, drafting, searching) off your team, so people spend their time on the work that pays.</p>
         <ul class="service-list">
-          <li>Custom AI integrations</li>
-          <li>Intelligent intake flows</li>
-          <li>Backend automation logic</li>
+          <li>AI-assisted intake &amp; triage</li>
+          <li>Searchable catalogs &amp; archives</li>
+          <li>Custom AI tools built around your workflow</li>
           <li>Full-stack builds</li>
         </ul>
       </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <p class="section-label">The Studio</p>
+    <div class="about-layout">
+      <div>
+        <h2 class="about-statement">Twenty years on set.<br><em>Now building for it.</em></h2>
+        <!-- PHOTO: replace the placeholder span with <img src="nick.webp" alt="Nick"> -->
+        <div class="about-photo">
+          <div class="p-browser">
+            <div class="p-browser-bar">
+              <div class="p-dot" style="background:#ff5f57"></div>
+              <div class="p-dot" style="background:#febc2e"></div>
+              <div class="p-dot" style="background:#28c840"></div>
+              <div class="p-url"></div>
+              <span class="p-url-text">nickydollars.ai</span>
+            </div>
+            <div class="about-photo-frame">
+              <span class="ph">[ADD: photo of Nick]</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="about-body">
+        <p>I've spent <strong>more than 20 years in the camera department</strong>. I started as a camera assistant and now work as a Camera Service Technician at a major cinema rental house. I know how productions book gear, how agencies send briefs and how crews get hired, because I've been on the receiving end of all of those emails.</p>
+        <p>NickyDollars.ai builds <strong>websites and AI systems for film, entertainment and advertising</strong>: sites that bring in work, and systems that take the busywork off your team so you make more and spend less time doing it.</p>
+        <p>I use AI to build faster, so you get <strong>custom work without agency timelines</strong>. You also work directly with the person building it, someone who already speaks your language.</p>
+        <p class="about-mono">Atlanta, GA · Working worldwide</p>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         FEATURE FLAG: TESTIMONIALS
+         Hidden until real client quotes are collected.
+         TO SHOW IT: replace each [ADD: …] placeholder with a real quote/name,
+         then delete the word  hidden  from the <div class="testimonials"> tag below.
+         Delete any <figure> you don't need.
+         ============================================================ -->
+    <div class="testimonials" hidden>
+      <p class="section-label">Kind Words</p>
+      <div class="testimonials-grid">
+        <figure class="testimonial">
+          <blockquote><span class="ph">[ADD: client quote]</span></blockquote>
+          <figcaption><span class="ph">[ADD: name]</span> — <span class="ph">[ADD: title, company]</span></figcaption>
+        </figure>
+        <figure class="testimonial">
+          <blockquote><span class="ph">[ADD: client quote]</span></blockquote>
+          <figcaption><span class="ph">[ADD: name]</span> — <span class="ph">[ADD: title, company]</span></figcaption>
+        </figure>
+        <figure class="testimonial">
+          <blockquote><span class="ph">[ADD: client quote]</span></blockquote>
+          <figcaption><span class="ph">[ADD: name]</span> — <span class="ph">[ADD: title, company]</span></figcaption>
+        </figure>
+      </div>
+    </div>
+    <!-- /FEATURE FLAG: TESTIMONIALS -->
+  </section>
+
+  <section id="contact">
+    <div class="contact-layout">
+      <div>
+        <p class="section-label">Get In Touch</p>
+        <h2 class="section-heading">Start a Project</h2>
+        <p class="contact-intro">Tell me what you're working on and what it needs to do for your business. I'll reply personally.</p>
+        <div class="contact-info-item">
+          <div class="contact-info-label">Email</div>
+          <div class="contact-info-value"><a href="mailto:hello@nickydollars.ai">hello@nickydollars.ai</a></div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-label">Based In</div>
+          <div class="contact-info-value">Atlanta, GA · Working worldwide</div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-label">Who I Work With</div>
+          <div class="contact-info-value">Production companies, rental houses, agencies, crew &amp; talent</div>
+        </div>
+        <p class="contact-signoff">Computers can do anything.</p>
+      </div>
+
+      <!-- Netlify Forms: submissions appear under Forms → project-inquiry in the Netlify dashboard. -->
+      <form class="contact-form" name="project-inquiry" method="POST" action="/thank-you.html" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="project-inquiry" />
+        <p class="form-hp" aria-hidden="true">
+          <label>Leave this field empty <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+        </p>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="f-name">Name</label>
+            <input id="f-name" type="text" name="name" autocomplete="name" placeholder="Your name" required />
+          </div>
+          <div class="form-field">
+            <label for="f-email">Email</label>
+            <input id="f-email" type="email" name="email" autocomplete="email" placeholder="you@company.com" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="f-company">Company</label>
+            <input id="f-company" type="text" name="company" autocomplete="organization" placeholder="Company or production" />
+          </div>
+          <div class="form-field">
+            <label for="f-role">Type of Business</label>
+            <select id="f-role" name="business-type" required>
+              <option value="" disabled selected>Select one</option>
+              <option value="Production company">Production company</option>
+              <option value="Rental house">Rental house</option>
+              <option value="Agency">Agency</option>
+              <option value="Crew / talent">Crew / talent</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="f-project">Project Description</label>
+          <textarea id="f-project" name="project" placeholder="What are you building, and what should it do for your business?" required></textarea>
+        </div>
+        <div class="form-field">
+          <label for="f-budget">Budget Range <span class="opt">(optional)</span></label>
+          <!-- Budget ranges are a suggestion; edit the options to match your pricing. -->
+          <select id="f-budget" name="budget">
+            <option value="" selected>Prefer not to say</option>
+            <option value="Under $5k">Under $5k</option>
+            <option value="$5k–$10k">$5k–$10k</option>
+            <option value="$10k–$25k">$10k–$25k</option>
+            <option value="$25k+">$25k+</option>
+            <option value="Not sure yet">Not sure yet</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-submit">SEND PROJECT DETAILS →</button>
+      </form>
     </div>
   </section>
 
