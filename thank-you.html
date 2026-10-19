@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Message Received — NickyDollars.ai</title>
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#080808" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:      #080808;
+      --border:     rgba(255,255,255,0.06);
+      --white:      #f5f5f5;
+      --muted:      #777;
+      --faint:      #3a3a3a;
+      --green:      #00c896;
+      --font-display: 'Bebas Neue', sans-serif;
+      --font-body:    'DM Sans', sans-serif;
+      --font-mono:    'Space Mono', monospace;
+    }
+
+    body { background: var(--black); color: var(--white); font-family: var(--font-body); font-size: 16px; line-height: 1.7; min-height: 100vh; display: flex; flex-direction: column; overflow-x: hidden; }
+
+    nav { height: 60px; display: flex; align-items: center; padding: 0 48px; border-bottom: 0.5px solid var(--border); position: relative; z-index: 2; background: rgba(8,8,8,0.94); }
+    .nav-logo { font-family: var(--font-display); font-size: 26px; color: var(--white); letter-spacing: 0.06em; line-height: 1; text-decoration: none; }
+
+    main { flex: 1; position: relative; display: flex; align-items: flex-end; padding: 96px 48px; overflow: hidden; }
+    .bg { position: absolute; inset: 0; background: url('hero.webp') center / cover no-repeat; opacity: 0.35; }
+    .bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(8,8,8,1) 10%, rgba(8,8,8,0.55) 60%, rgba(8,8,8,0.3) 100%); }
+    .grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(0,200,150,0.028) 1px, transparent 1px), linear-gradient(90deg, rgba(0,200,150,0.028) 1px, transparent 1px); background-size: 48px 48px; }
+    .content { position: relative; z-index: 2; max-width: 720px; }
+    .label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.25em; color: var(--green); text-transform: uppercase; margin-bottom: 16px; }
+    h1 { font-family: var(--font-display); font-size: clamp(56px, 9vw, 120px); line-height: 0.9; margin-bottom: 24px; }
+    h1 span { color: var(--green); }
+    p.body { font-size: 16px; color: #aaa; font-weight: 300; margin-bottom: 36px; max-width: 520px; }
+    .btn-primary { display: inline-block; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; color: var(--black); background: var(--green); padding: 14px 32px; border-radius: 4px; text-decoration: none; transition: opacity 0.2s; }
+    .btn-primary:hover { opacity: 0.85; }
+
+    footer { border-top: 0.5px solid var(--border); padding: 28px 48px; font-family: var(--font-mono); font-size: 9px; color: var(--green); letter-spacing: 0.18em; }
+
+    @media (max-width: 860px) {
+      nav, footer { padding-left: 20px; padding-right: 20px; }
+      main { padding: 64px 20px; }
+    }
+  </style>
+</head>
+<body>
+  <nav><a href="/" class="nav-logo">NICKYDOLLARS.ai</a></nav>
+  <main>
+    <div class="bg"></div>
+    <div class="grid"></div>
+    <div class="content">
+      <p class="label">Message Received</p>
+      <h1>You're on <span>the call sheet.</span></h1>
+      <p class="body">Thanks, your project details came through. I read every inquiry myself and will reply at the email you provided.</p>
+      <a href="/" class="btn-primary">← BACK TO NICKYDOLLARS.AI</a>
+    </div>
+  </main>
+  <footer>Computers can do anything.</footer>
+</body>
+</html>
