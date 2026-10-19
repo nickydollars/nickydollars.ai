@@ -28,7 +28,7 @@
   <meta name="twitter:description" content="Websites and AI systems for film, entertainment &amp; advertising — built by someone with 20 years on set." />
   <meta name="twitter:image" content="https://nickydollars.ai/og-image.jpg" />
 
-  <!-- Structured data. Update Person "name" with your full name and add profile links to "sameAs". -->
+  <!-- Structured data. Add your profile URLs to Person "sameAs", e.g. ["https://www.instagram.com/…", "https://www.linkedin.com/in/…"]. -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -51,7 +51,7 @@
       {
         "@type": "Person",
         "@id": "https://nickydollars.ai/#nick",
-        "name": "Nick",
+        "name": "Nick Montalvo",
         "url": "https://nickydollars.ai/",
         "jobTitle": "Founder, NickyDollars.ai",
         "description": "Camera assistant for 20+ years, now a Camera Service Technician at a cinema rental house, building websites and AI systems for film, entertainment and advertising.",
@@ -288,12 +288,12 @@
     /* ABOUT */
     #about { background: var(--black); border-top: 0.5px solid var(--border); }
     .about-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
-    .about-statement { font-family: var(--font-display); font-size: clamp(40px, 4.4vw, 64px); color: var(--white); line-height: 1.02; margin-bottom: 40px; }
+    .about-statement { font-family: var(--font-display); font-size: clamp(40px, 4.4vw, 64px); color: var(--white); line-height: 1.02; margin-bottom: 0; }
     .about-statement em { color: var(--green); font-style: normal; }
     .about-body p { font-size: 15px; color: #999; font-weight: 300; line-height: 1.8; margin-bottom: 18px; }
     .about-body p strong { color: var(--white); font-weight: 500; }
     .about-mono { font-family: var(--font-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.1em; margin-top: 28px; text-transform: uppercase; }
-    .about-photo { border-radius: 14px; overflow: hidden; background: var(--surface); border: 0.5px solid var(--border-mid); max-width: 460px; }
+    .about-photo { margin-top: 40px; border-radius: 14px; overflow: hidden; background: var(--surface); border: 0.5px solid var(--border-mid); max-width: 460px; }
     .about-photo .p-browser { background: var(--surface); padding-bottom: 12px; }
     .about-photo-frame { aspect-ratio: 4 / 5; border-radius: 6px; background: repeating-linear-gradient(135deg, #111 0 12px, #0c0c0c 12px 24px); display: flex; align-items: center; justify-content: center; overflow: hidden; }
     .about-photo-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -490,7 +490,7 @@
         </div>
         <div class="cs-block cs-result">
           <p class="cs-label">Result</p>
-          <p class="cs-text">Briefs land in producers' inboxes the moment they come in, and every visitor gets an instant reply. No one does it by hand.<br><span class="ph">[ADD: results]</span></p>
+          <p class="cs-text">Briefs land in producers' inboxes the moment they come in, and every visitor gets an instant reply. No one does it by hand.</p>
         </div>
         <!-- UPDATE ME: Wanted International platform teaser. Edit the text or delete this line when the platform launches. -->
         <p class="p-teaser">Platform in progress, coming soon</p>
@@ -517,7 +517,7 @@
         <h3 class="p-title">Joe Krakoviak for Mayor</h3>
         <div class="cs-block">
           <p class="cs-label">Problem</p>
-          <p class="cs-text">A mayoral campaign on NationBuilder with a failing donation form, and a site that had to change fast as the race moved.</p>
+          <p class="cs-text">A mayoral campaign on NationBuilder that needed a site able to change as fast as the race.</p>
         </div>
         <div class="cs-block">
           <p class="cs-label">What I Built</p>
@@ -530,7 +530,7 @@
         </div>
         <div class="cs-block cs-result">
           <p class="cs-label">Result</p>
-          <p class="cs-text">Donations process reliably, and new content goes live the same day.<br><span class="ph">[ADD: results]</span></p>
+          <p class="cs-text">Donations process reliably, and new content goes live the same day.</p>
         </div>
         <a href="https://joekrakoviak.com" class="p-link" target="_blank" rel="noopener">View Project →</a>
       </div>
@@ -665,8 +665,14 @@
     <div class="about-layout">
       <div>
         <h2 class="about-statement">Twenty years on set.<br><em>Now building for it.</em></h2>
-        <!-- PHOTO: replace the placeholder span with <img src="nick.webp" alt="Nick"> -->
-        <div class="about-photo">
+        <!-- ============================================================
+             FEATURE FLAG: STUDIO PHOTO
+             Hidden until nick.webp is added to the site folder.
+             TO SHOW IT: replace the placeholder <span> below with
+             <img src="nick.webp" alt="Nick Montalvo" width="800" height="1000">
+             then delete the word  hidden  from the <div class="about-photo"> tag.
+             ============================================================ -->
+        <div class="about-photo" hidden>
           <div class="p-browser">
             <div class="p-browser-bar">
               <div class="p-dot" style="background:#ff5f57"></div>
@@ -680,6 +686,7 @@
             </div>
           </div>
         </div>
+        <!-- /FEATURE FLAG: STUDIO PHOTO -->
       </div>
       <div class="about-body">
         <p>I've spent <strong>more than 20 years in the camera department</strong>. I started as a camera assistant and now work as a Camera Service Technician at a major cinema rental house. I know how productions book gear, how agencies send briefs and how crews get hired, because I've been on the receiving end of all of those emails.</p>
