@@ -350,6 +350,12 @@
       .nav-links, .nav-cta { display: none; }
       .nav-mobile-toggle { display: block; }
       #hero { padding: 90px 20px 64px; }
+      /* Mobile hero: full-width image directly under the 60px nav, headline below it */
+      #hero { min-height: auto; padding-top: calc(60px + 60vw); }
+      .hero-image-wrap { top: 60px; bottom: auto; height: 66vw; }
+      .hero-image-bg { background-size: 120% auto; background-position: center center; }
+      .hero-image-bottom { height: 35%; }
+      .hero-image-overlay { background: none; }
       .hero-sub { font-size: 11px; }
       section { padding: 64px 20px; }
       .about-layout, .contact-layout { grid-template-columns: 1fr; gap: 40px; }
